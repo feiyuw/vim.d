@@ -5,7 +5,8 @@ syntax on
 filetype plugin indent on
 set fileencodings=utf-8,gb18030,cp936,big5
 set autoread
-colo desert
+colo salarized
+set background=light
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
