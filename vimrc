@@ -5,8 +5,6 @@ syntax on
 filetype plugin indent on
 set fileencodings=utf-8,gb18030,cp936,big5
 set autoread
-colo salarized
-set background=light
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
@@ -17,8 +15,14 @@ set list
 set listchars=tab:>-,trail:-
 set guioptions=i
 if has("gui_gtk2")
-  set guifont=DejaVu\ Sans\ Mono\ 12
-  set guifontwide=DejaVu\ Sans\ Mono\ 12
+    set guifont=DejaVu\ Sans\ Mono\ 12
+    set guifontwide=DejaVu\ Sans\ Mono\ 12
+    set background=dark
+    colorscheme salarized
+else
+"    set t_Co=256
+    set background=light
+    colorscheme salarized
 endif
 set expandtab
 set smarttab
@@ -41,13 +45,13 @@ map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
 nmap <SPACE> @=((foldclosed(line('.')) < 0)?'zc':'zo')<CR>
 if has("unix")
-	map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-	map <leader>vs :vsplit <C-R>=expand("%:p:h") . "/" <CR>
-	map <leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
+    map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+    map <leader>vs :vsplit <C-R>=expand("%:p:h") . "/" <CR>
+    map <leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
 else
-	map <leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
-	map <leader>vs :vsplit <C-R>=expand("%:p:h") . "\\" <CR>
-	map <leader>s :split <C-R>=expand("%:p:h") . "\\" <CR>
+    map <leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
+    map <leader>vs :vsplit <C-R>=expand("%:p:h") . "\\" <CR>
+    map <leader>s :split <C-R>=expand("%:p:h") . "\\" <CR>
 endif
 map <C-S> :mksession! ~/last.vim<CR>
 map <C-L> :source ~/last.vim<CR>
