@@ -18,7 +18,7 @@ if has("gui_gtk2")
     set guifont=DejaVu\ Sans\ Mono\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ 12
     set background=dark
-    colorscheme salarized
+    colorscheme solarized
 else
 "    set t_Co=256
     set background=light
