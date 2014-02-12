@@ -1,31 +1,70 @@
+" Vundle settings
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-rails.git'
+Bundle 'vimux'
+Bundle 'Solarized'
+Bundle 'Emmet.vim'
+Bundle 'ctrlp.vim'
+Bundle 'taglist.vim'
+Bundle 'minibufexpl.vim'
+Bundle 'The-NERD-tree'
+Bundle 'NERD_tree-Project'
+Bundle 'NERD_Tree-and-ack'
+Bundle 'The-NERD-Commenter'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-ipython'
+Bundle 'UltiSnips'
+
+Bundle 'taglist.vim'
+    let Tlist_Ctags_Cmd='/usr/bin/ctags'
+    let Tlist_Show_One_File=1
+    let Tlist_Exit_OnlyWindow=1
+    let Tlist_Use_Right_Window = 1
+    map <F4> :Tlist<CR>
+
+Bundle 'The-NERD-tree'
+    let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
+    map <F12> :ToggleNERDTree<CR>
+
+Bundle 'ctrlp.vim'
+    let g:ctrlp_cmd = 'CtrlPMRU'
+
+Bundle 'The-NERD-Commenter'
+    let NERDShutUp=1
+    map <c-m> ,c<space>
+
+Bundle 'UltiSnips'
+  let g:UltiSnipsExpandTrigger="<c-j>"
+  let g:UltiSnipsJumpForwardTrigger="<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+filetype plugin indent on
+
 let g:mapleader=","
 set nu
 set ruler
+set cursorline
+"set cursorcolumn
 syntax on
-filetype plugin indent on
 set fileencodings=utf-8,gb18030,cp936,big5
 set autoread
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_Right_Window = 1
-map <F4> :Tlist<CR>
-map <F12> :NERDTreeToggle /home/dudu/Workspace<CR>
 set list
 set listchars=tab:>-,trail:-
-set guioptions=i
-if has("gui_gtk2")
+if has("gui_running")
+    set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ 12
     set background=dark
     colorscheme solarized
 else
-"    set t_Co=256
-    set background=light
-    colorscheme salarized
+    colorscheme desert
 endif
 set expandtab
-set smarttab
 set foldmethod=indent
 "set foldenable
 "set foldcolumn=3
@@ -35,10 +74,15 @@ set incsearch
 "set cindent
 set autoindent
 set smartindent
+set hidden
 set linebreak
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+set ignorecase
+set smartcase
+
 autocmd BufNewFile,BufRead *.[ch] set foldmethod=syntax
 map <leader>t :tabnew<CR>
 map <leader>n :tabn<CR>
@@ -55,6 +99,12 @@ else
 endif
 map <C-S> :mksession! ~/last.vim<CR>
 map <C-L> :source ~/last.vim<CR>
+
+" 插入模式下移动
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+inoremap <c-h> <left>
 
 "for python
 set ofu=syntaxcomplete#Complete
