@@ -21,6 +21,7 @@ Bundle 'pyflakes.vim'
 "Bundle 'vim-ipython'
 Bundle 'UltiSnips'
 "Bundle 'Conque-Shell'
+Bundle 'Markdown'
 
 Bundle 'taglist.vim'
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
