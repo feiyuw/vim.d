@@ -33,6 +33,9 @@ Bundle 'The-NERD-tree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
 
+Bundle 'NERD_tree-Project'
+    let g:NTPNames = ['Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
+
 Bundle 'ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlPMRU'
 
