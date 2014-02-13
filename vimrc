@@ -5,8 +5,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-rails.git'
-Bundle 'vimux'
+"Bundle 'tpope/vim-rails.git'
+"Bundle 'vimux'
 Bundle 'Solarized'
 Bundle 'Emmet.vim'
 Bundle 'ctrlp.vim'
@@ -17,8 +17,10 @@ Bundle 'NERD_tree-Project'
 Bundle 'NERD_Tree-and-ack'
 Bundle 'The-NERD-Commenter'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'vim-ipython'
+Bundle 'pyflakes.vim'
+"Bundle 'vim-ipython'
 Bundle 'UltiSnips'
+"Bundle 'Conque-Shell'
 
 Bundle 'taglist.vim'
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
@@ -43,6 +45,17 @@ Bundle 'UltiSnips'
   let g:UltiSnipsJumpForwardTrigger="<c-j>"
   let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+Bundle 'Solarized'
+    if has("gui_running")
+        set guioptions=i
+        set guifont=DejaVu\ Sans\ Mono\ 12
+        set guifontwide=DejaVu\ Sans\ Mono\ 12
+    else
+        set t_Co=256
+    endif
+    set background=dark
+    colorscheme solarized
+
 filetype plugin indent on
 
 let g:mapleader=","
@@ -55,15 +68,6 @@ set fileencodings=utf-8,gb18030,cp936,big5
 set autoread
 set list
 set listchars=tab:>-,trail:-
-if has("gui_running")
-    set guioptions=i
-    set guifont=DejaVu\ Sans\ Mono\ 12
-    set guifontwide=DejaVu\ Sans\ Mono\ 12
-    set background=dark
-    colorscheme solarized
-else
-    colorscheme desert
-endif
 set expandtab
 set foldmethod=indent
 "set foldenable
