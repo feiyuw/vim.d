@@ -42,3 +42,8 @@ Shortcuts
 1. `,;`                 -> auto complete
 1. `,t`                 -> open new tab
 1. `,n`                 -> go to next tab
+
+Reference
+=============
+1. [VIM Tips](http://www.rayninfo.co.uk/vimtips.html)
+1. [VIM scripts](http://vim-scripts.org)
