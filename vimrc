@@ -36,7 +36,10 @@ Bundle 'NERD_tree-Project'
     let g:NTPNames = ['Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
 
 Bundle 'ctrlp.vim'
-    let g:ctrlp_cmd = 'CtrlPMRU'
+    let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrlp_switch_buffer = 'Et'
+    let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
