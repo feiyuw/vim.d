@@ -8,19 +8,17 @@ Bundle 'gmarik/vundle'
 "Bundle 'tpope/vim-rails.git'
 "Bundle 'vimux'
 Bundle 'Solarized'
-Bundle 'Emmet.vim'
+"Bundle 'Emmet.vim'
 Bundle 'ctrlp.vim'
 Bundle 'taglist.vim'
 Bundle 'minibufexpl.vim'
 Bundle 'The-NERD-tree'
 Bundle 'NERD_tree-Project'
-Bundle 'NERD_Tree-and-ack'
 Bundle 'The-NERD-Commenter'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'pyflakes.vim'
 "Bundle 'vim-ipython'
 Bundle 'UltiSnips'
-"Bundle 'Conque-Shell'
+Bundle 'carlobaldassi/ConqueTerm'
 Bundle 'Markdown'
 
 Bundle 'taglist.vim'
@@ -45,9 +43,9 @@ Bundle 'The-NERD-Commenter'
     map <c-m> ,c<space>
 
 Bundle 'UltiSnips'
-  let g:UltiSnipsExpandTrigger="<c-j>"
-  let g:UltiSnipsJumpForwardTrigger="<c-j>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+  let g:UltiSnipsExpandTrigger="<a-j>"
+  let g:UltiSnipsJumpForwardTrigger="<a-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<a-k>"
 
 Bundle 'Solarized'
     if has("gui_running")
@@ -59,6 +57,9 @@ Bundle 'Solarized'
     endif
     set background=dark
     colorscheme solarized
+
+Bundle 'carlobaldassi/ConqueTerm'
+    nmap <F10> :ConqueTermSplit bash<CR>
 
 filetype plugin indent on
 
