@@ -1,3 +1,5 @@
+let g:mapleader=","
+
 " Vundle settings
 filetype off
 
@@ -21,6 +23,10 @@ Bundle 'ctrlp.vim'
     let g:ctrlp_switch_buffer = 'Et'
     let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
     let g:ctrlp_extensions = ['tag']
+    let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+        \ 'file': '\v\.(exe|so|dll|pyc|class)$',
+        \ }
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 Bundle 'taglist.vim'
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
@@ -33,6 +39,8 @@ Bundle 'minibufexpl.vim'
     let g:miniBufExplMapWindowNavArrows = 1
     let g:miniBufExplMapCTabSwitchBufs = 1
     let g:miniBufExplModSelTarget = 1
+    let g:miniBufExplMaxSize = 2
+    let g:miniBufExplorerMoreThanOne=0
 Bundle 'The-NERD-tree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
@@ -43,16 +51,15 @@ Bundle 'The-NERD-Commenter'
     map <c-m> ,c<space>
 Bundle 'pyflakes.vim'
 Bundle 'UltiSnips'
-  let g:UltiSnipsExpandTrigger="<c-j>"
-  let g:UltiSnipsJumpForwardTrigger="<c-j>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+    let g:UltiSnipsExpandTrigger="<c-j>"
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Bundle 'carlobaldassi/ConqueTerm'
     nmap <F10> :ConqueTermSplit bash<CR>
 Bundle 'Markdown'
 
 filetype plugin indent on
 
-let g:mapleader=","
 set nu
 set ruler
 set cursorline
@@ -81,7 +88,7 @@ set smartcase
 autocmd BufNewFile,BufRead *.[ch] set foldmethod=syntax
 nmap <SPACE> @=((foldclosed(line('.')) < 0)?'zc':'zo')<CR>
 if has("unix")
-    map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
     map <leader>vs :vsplit <C-R>=expand("%:p:h") . "/" <CR>
     map <leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
 else
@@ -164,29 +171,3 @@ map <leader>p :tabp<CR>
 "tag设置
 autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py set tags=tags;
 set autochdir
-
-"function! DelTagOfFile(file)
-  "let fullpath = a:file
-  "let cwd = getcwd()
-  "let tagfilename = cwd . "/tags"
-  "let f = substitute(fullpath, cwd . "/", "", "")
-  "let f = escape(f, './')
-  "let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
-  "let resp = system(cmd)
-"endfunction
-
-"function! UpdateTags()
-  "let f = expand("%:p")
-  "let cwd = getcwd()
-  "let tagfilename = cwd . "/tags"
-  ""let cmd = 'ctags -a -f ' . tagfilename . ' --c++-kinds=+p --fields=+iaS --extra=+q ' . '"' . f . '"'
-  "let cmd = 'ctags -a -f ' . tagfilename . '"' . f . '"'
-  "call DelTagOfFile(f)
-  "let resp = system(cmd)
-"endfunction
-"autocmd BufWritePost *.cpp,*.h,*.c,*.java,*.py call UpdateTags()
-
-"session设置
-au VimLeave * mksession! ~/.vim/session/last.session
-au VimLeave * wviminfo! ~/.vim/session/last.viminfo
-map <leader>l :source ~/.vim/session/last.session<CR>:rviminfo ~/.vim/session/last.viminfo<CR>
