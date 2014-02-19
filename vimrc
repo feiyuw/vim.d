@@ -17,8 +17,10 @@ Bundle 'Solarized'
     colorscheme solarized
 Bundle 'ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
+    "let g:ctrlp_cmd = 'CtrlPTag'
     let g:ctrlp_switch_buffer = 'Et'
     let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
+    let g:ctrlp_extensions = ['tag']
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 Bundle 'taglist.vim'
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
@@ -62,9 +64,6 @@ set list
 set listchars=tab:>-,trail:-
 set expandtab
 set foldmethod=indent
-"set foldenable
-"set foldcolumn=3
-"set foldlevel=4
 set hlsearch
 set incsearch
 "set cindent
@@ -90,8 +89,6 @@ else
     map <leader>vs :vsplit <C-R>=expand("%:p:h") . "\\" <CR>
     map <leader>s :split <C-R>=expand("%:p:h") . "\\" <CR>
 endif
-"map <C-S> :mksession! ~/last.vim<CR>
-"map <C-L> :source ~/last.vim<CR>
 
 " 插入模式下移动
 "inoremap <c-j> <down>
@@ -135,13 +132,13 @@ let g:netrw_list_hide= '(^\..*|.*\.pyc|.*\.class)'
 autocmd BufNewFile * normal G
 
 "读入python文件，设置缩进格式
-autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,finally,def,class
+autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
 "读入C文件，设置折叠方式为syntax
-autocmd BufNewFile,BufRead *.[ch],*.cpp set foldmethod=syntax
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java set foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd BufNewFile,BufRead *.py,*.sh,*.java,*.php set foldmethod=indent
+autocmd BufNewFile,BufRead *.py,*.sh set foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -164,3 +161,32 @@ map <leader>t :tabnew<CR>
 map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
 
+"tag设置
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py set tags=tags;
+set autochdir
+
+"function! DelTagOfFile(file)
+  "let fullpath = a:file
+  "let cwd = getcwd()
+  "let tagfilename = cwd . "/tags"
+  "let f = substitute(fullpath, cwd . "/", "", "")
+  "let f = escape(f, './')
+  "let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
+  "let resp = system(cmd)
+"endfunction
+
+"function! UpdateTags()
+  "let f = expand("%:p")
+  "let cwd = getcwd()
+  "let tagfilename = cwd . "/tags"
+  ""let cmd = 'ctags -a -f ' . tagfilename . ' --c++-kinds=+p --fields=+iaS --extra=+q ' . '"' . f . '"'
+  "let cmd = 'ctags -a -f ' . tagfilename . '"' . f . '"'
+  "call DelTagOfFile(f)
+  "let resp = system(cmd)
+"endfunction
+"autocmd BufWritePost *.cpp,*.h,*.c,*.java,*.py call UpdateTags()
+
+"session设置
+au VimLeave * mksession! ~/.vim/session/last.session
+au VimLeave * wviminfo! ~/.vim/session/last.viminfo
+map <leader>l :source ~/.vim/session/last.session<CR>:rviminfo ~/.vim/session/last.viminfo<CR>
