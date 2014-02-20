@@ -171,3 +171,28 @@ map <leader>p :tabp<CR>
 "tag设置
 autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py set tags=tags;
 set autochdir
+
+"有代码更新的时候，自动更新tags
+function! GoToProjectRoot()
+    if !exists("g:NTPNames")
+      let g:NTPNames = ['Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
+    endif
+    for filename in g:NTPNames
+        let file = findfile(filename, expand("%:p:h") . ';')
+        if filereadable(file)
+            let ProjectRoot = fnamemodify(file, ':p:h')
+            exe "cd " . ProjectRoot
+            break
+        endif
+    endfor
+endfunction
+
+function! UpdateTags()
+    call GoToProjectRoot()
+    let cmd = 'ctags -R .'
+    " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
+    "let cmd = 'make tags'
+    let resp = system(cmd)
+endfunction
+
+autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java call UpdateTags()
