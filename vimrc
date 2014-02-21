@@ -34,13 +34,16 @@ Bundle 'taglist.vim'
     let Tlist_Exit_OnlyWindow=1
     let Tlist_Use_Right_Window = 1
     map <F4> :Tlist<CR>
-Bundle 'minibufexpl.vim'
-    let g:miniBufExplMapWindowNavVim = 1
-    let g:miniBufExplMapWindowNavArrows = 1
-    let g:miniBufExplMapCTabSwitchBufs = 1
-    let g:miniBufExplModSelTarget = 1
+Bundle 'fholgado/minibufexpl.vim'
     let g:miniBufExplMaxSize = 2
-    let g:miniBufExplorerMoreThanOne=0
+    let g:miniBufExplBuffersNeeded = 1
+    let g:miniBufExplCycleArround = 1
+    noremap <C-Down> <C-W>j
+    noremap <C-Up> <C-W>k
+    noremap <C-Left> <C-W>h
+    noremap <C-Right> <C-W>l
+    noremap <C-TAB> :MBEbn<CR>
+    noremap <C-S-TAB> :MBEbp<CR>
 Bundle 'The-NERD-tree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
