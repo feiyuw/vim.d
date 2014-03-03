@@ -58,7 +58,18 @@ Bundle 'UltiSnips'
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Bundle 'carlobaldassi/ConqueTerm'
-    nmap <F10> :ConqueTermSplit bash<CR>
+    "use F10 as a toggle key for bash window
+    function! ToggleBashTerm()
+        if !exists("g:BashTerm") || g:BashTerm == 0
+            let g:BashTerm = 1
+            execute 'ConqueTermSplit bash'
+        else
+            let g:BashTerm = 0
+            execute 'close'
+        endif
+    endfunction
+    nmap <F10> :call ToggleBashTerm()<CR>
+    imap <F10> <ESC>:call ToggleBashTerm()<CR>
 Bundle 'Markdown'
 
 filetype plugin indent on
@@ -89,7 +100,7 @@ set ignorecase
 set smartcase
 
 autocmd BufNewFile,BufRead *.[ch] set foldmethod=syntax
-nmap <SPACE> @=((foldclosed(line('.')) < 0)?'zc':'zo')<CR>
+nmap <SPACE> @=((foldclosed(line('.')) < 0)?'zc':'zO')<CR>
 if has("unix")
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
     map <leader>vs :vsplit <C-R>=expand("%:p:h") . "/" <CR>
@@ -170,6 +181,10 @@ map <F4> :Tlist<CR>
 map <leader>t :tabnew<CR>
 map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
+
+"复制粘贴
+cmap <leader>" <C-r>"
+cmap <leader>+ <C-r>+
 
 "tag设置
 autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py set tags=tags;

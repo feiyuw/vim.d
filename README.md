@@ -73,15 +73,15 @@
 
 1. `<F4>`
 
-    open tag list on the right panel
+    open/close tag list on the right panel
 
 1. `<F12>`
 
-    open project browser on the left panel
+    open/close project browser on the left panel
 
 1. `<F10>`
 
-    open bash on the below panel
+    open/close bash on the bottom panel
 
 1. `<Ctrl-Tab>`
 
@@ -128,7 +128,8 @@
 1. after select several columns, 
     * `I` used to add content before cursor column
     * `A` used to add content after cursor column
-    * `r` used to modify content in cursor column
+    * `r` used to modify content under cursor
+    * `x` used to delete content under cursor
 
 ### Quick Move
 
@@ -140,6 +141,7 @@
 1. `0` move to start of the line, `$` move to end of the line
     * `^` move to first char of the line
 1. `gg` move to the start of the file, `G` move to the end of the file
+1. `<Ctrl-]>` jump to the definition of content under cursor, while `<Ctrl-t>` jump back
 
 ### Quick Edit
 
@@ -151,7 +153,7 @@
 1. `caw` modify the current word
 1. `c0` modify from start to current position
 1. `c$` modify from current position to end of this line
-1. `R` update the content
+1. `R` update the content until got `ESC`
 
 ### Macro
 
@@ -160,6 +162,21 @@
 1. `q` stop to record
 1. `@a` execute the macro
 1. `@@` execute the last executed macro
+
+
+### Tags
+
+1. VIM will determine `tags` file automatically
+1. When file saved, `tags` file under `project root` will be updated automatically
+1. `project root` is determined the root directory of project, the file names to identify the `project root` include:
+    * Makefile,
+    * makefile,
+    * setup.py
+    * pom.xml
+    * build.xml
+    * .project
+    * BUCK
+    * .lvimrc
 
 
 ## Reference
