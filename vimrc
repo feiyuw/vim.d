@@ -22,12 +22,14 @@ Bundle 'ctrlp.vim'
     "let g:ctrlp_cmd = 'CtrlPTag'
     let g:ctrlp_switch_buffer = 'Et'
     let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
+    let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+    let g:ctrlp_clear_cache_on_exit = 1
     let g:ctrlp_extensions = ['tag']
     let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-        \ 'file': '\v\.(exe|so|dll|pyc|class)$',
+        \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags
 Bundle 'taglist.vim'
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
     let Tlist_Show_One_File=1
