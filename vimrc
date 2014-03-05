@@ -23,7 +23,7 @@ Bundle 'ctrlp.vim'
     let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
     let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
     let g:ctrlp_clear_cache_on_exit = 1
-    "let g:ctrlp_extensions = ['tag']
+    let g:ctrlp_extensions = ['tag']
     let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
