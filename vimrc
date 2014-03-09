@@ -208,10 +208,13 @@ endfunction
 
 function! UpdateTags()
     call GoToProjectRoot()
-    let cmd = 'ctags -R .'
-    " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-    "let cmd = 'make tags'
-    let resp = system(cmd)
+    let currentDir = expand("%:p:h")
+    if currentDir != $HOME
+        let cmd = 'ctags -R .'
+        " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
+        "let cmd = 'make tags'
+        let resp = system(cmd)
+    endif
 endfunction
 
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java call UpdateTags()
