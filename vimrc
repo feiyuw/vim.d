@@ -188,7 +188,7 @@ cmap <leader>" <C-r>"
 cmap <leader>+ <C-r>+
 
 "tag设置
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py set tags=tags;
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py,Makefile,*.html set tags=.tags;
 set autochdir
 
 "有代码更新的时候，自动更新tags
@@ -210,7 +210,7 @@ function! UpdateTags()
     call GoToProjectRoot()
     let currentDir = expand("%:p:h")
     if currentDir != $HOME
-        let cmd = 'ctags -R .'
+        let cmd = 'ctags -f .tags -R .'
         " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
         "let cmd = 'make tags'
         let resp = system(cmd)
