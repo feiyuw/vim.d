@@ -16,11 +16,12 @@ Bundle 'Solarized'
         set t_Co=256
     endif
     set background=dark
+    "set background=light
     colorscheme solarized
 Bundle 'ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
-    let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
+    let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
     let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
     let g:ctrlp_clear_cache_on_exit = 1
     let g:ctrlp_extensions = ['tag']
@@ -49,7 +50,7 @@ Bundle 'The-NERD-tree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
 Bundle 'NERD_tree-Project'
-    let g:NTPNames = ['Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
+    let g:NTPNames = ['Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
 Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
     map <c-m> ,c<space>
@@ -187,14 +188,18 @@ map <leader>p :tabp<CR>
 cmap <leader>" <C-r>"
 cmap <leader>+ <C-r>+
 
+"Ctrl+S
+imap <C-s> <ESC>:w<CR>i
+nmap <C-s> :w<CR>
+
 "tag设置
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py,Makefile,*.html set tags=.tags;
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py,Makefile,Rakefile,*.html set tags=.tags;
 set autochdir
 
 "有代码更新的时候，自动更新tags
 function! GoToProjectRoot()
     if !exists("g:NTPNames")
-      let g:NTPNames = ['Makefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
+      let g:NTPNames = ['Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
     endif
     for filename in g:NTPNames
         let file = findfile(filename, expand("%:p:h") . ';')
@@ -218,3 +223,24 @@ function! UpdateTags()
 endfunction
 
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java call UpdateTags()
+
+"session设置
+set sessionoptions=options,buffers,curdir,winsize,winpos,resize
+fu! SaveSess()
+    execute 'mksession! $HOME/.vim/session.vim'
+endfunction
+
+fu! RestoreSess()
+execute 'so $HOME/.vim/session.vim'
+if bufexists(1)
+    for l in range(1, bufnr('$'))
+        if bufwinnr(l) == -1
+            exec 'sbuffer ' . l
+        endif
+    endfor
+endif
+endfunction
+
+autocmd VimLeave * call SaveSess()
+"autocmd VimEnter * call RestoreSess()
+map <C-l> :call RestoreSess()<CR>
