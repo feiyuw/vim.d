@@ -55,10 +55,10 @@ Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
     map <c-m> ,c<space>
 Bundle 'pyflakes.vim'
-Bundle 'UltiSnips'
-    let g:UltiSnipsExpandTrigger="<c-j>"
-    let g:UltiSnipsJumpForwardTrigger="<c-j>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+"Bundle 'UltiSnips'
+    "let g:UltiSnipsExpandTrigger="<c-j>"
+    "let g:UltiSnipsJumpForwardTrigger="<c-j>"
+    "let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Bundle 'carlobaldassi/ConqueTerm'
     "use F10 as a toggle key for bash window
     function! ToggleBashTerm()
