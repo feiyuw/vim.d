@@ -86,10 +86,8 @@ set autoread
 set list
 set listchars=tab:>-,trail:-
 set expandtab
-set foldmethod=indent
 set hlsearch
 set incsearch
-"set cindent
 set autoindent
 set smartindent
 set hidden
@@ -101,7 +99,6 @@ set shiftwidth=4
 set ignorecase
 set smartcase
 
-autocmd BufNewFile,BufRead *.[ch] set foldmethod=syntax
 nmap <SPACE> @=((foldclosed(line('.')) < 0)?'zc':'zO')<CR>
 if has("unix")
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -223,6 +220,13 @@ function! UpdateTags()
 endfunction
 
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java call UpdateTags()
+
+function! RunUnitTest()
+    call GoToProjectRoot()
+    :!make test
+endfunction
+
+map <F5>  :call RunUnitTest()<CR>
 
 "session设置
 set sessionoptions=options,buffers,curdir,winsize,winpos,resize
