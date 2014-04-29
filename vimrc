@@ -223,7 +223,7 @@ autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java call UpdateTags()
 
 function! RunUnitTest()
     call GoToProjectRoot()
-    :!make test
+    :make test
 endfunction
 
 map <F5>  :call RunUnitTest()<CR>
