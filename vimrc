@@ -30,12 +30,6 @@ Bundle 'ctrlp.vim'
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags
-Bundle 'taglist.vim'
-    let Tlist_Ctags_Cmd='/usr/bin/ctags'
-    let Tlist_Show_One_File=1
-    let Tlist_Exit_OnlyWindow=1
-    let Tlist_Use_Right_Window = 1
-    map <F4> :Tlist<CR>
 Bundle 'fholgado/minibufexpl.vim'
     let g:miniBufExplMaxSize = 2
     let g:miniBufExplBuffersNeeded = 1
@@ -73,6 +67,10 @@ Bundle 'carlobaldassi/ConqueTerm'
     nmap <F10> :call ToggleBashTerm()<CR>
     imap <F10> <ESC>:call ToggleBashTerm()<CR>
 Bundle 'Markdown'
+Bundle 'majutsushi/tagbar'
+    map <F4> :TagbarToggle<CR>
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
@@ -171,9 +169,6 @@ nmap <leader>c "+y
 "imap <leader>v <ESC>"+p "不设置insert模式下的快捷键，因为会造成无法输入,v
 vmap <leader>v <ESC>"+p
 nmap <leader>v "+p
-
-"设定开关Taglist插件的快捷键为F4，可以在VIM的左侧栏列出函数列表等
-map <F4> :Tlist<CR>
 
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
