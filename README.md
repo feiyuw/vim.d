@@ -52,6 +52,9 @@
 | `UltiSnips`                       | code snipper support                                      |
 | `carlobaldassi/ConqueTerm`        | execute command on vim panel                              |
 | `Markdown`                        | markdown syntax support                                   |
+| `majutsushi/tagbar`               | tagbar to replace taglist                                 |
+| `Lokaltog/vim-powerline`          | enhanced status bar                                       |
+| `Valloric/YouCompleteMe`          | good auto complete plugin                                 |
 
 ## Shortcuts
 
@@ -73,7 +76,11 @@
 
 1. `<F4>`
 
-    open/close tag list on the right panel
+    open/close tag bar on the right panel
+
+1. `<F5>`
+    
+    execute "make test" in project root
 
 1. `<F12>`
 

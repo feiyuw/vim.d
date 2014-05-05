@@ -139,7 +139,7 @@ set autoread
 "设置折叠
 set foldenable
 set foldcolumn=2
-set foldlevel=3
+set foldlevel=4
 
 "打开目录时不显示隐藏目录和文件，以及.pyc文件。
 let g:netrw_hide= 1
@@ -224,22 +224,22 @@ endfunction
 map <F5>  :call RunUnitTest()<CR>
 
 "session设置
-set sessionoptions=options,buffers,curdir,winsize,winpos,resize
-fu! SaveSess()
-    execute 'mksession! $HOME/.vim/session.vim'
-endfunction
+"set sessionoptions=options,buffers,curdir,winsize,winpos,resize
+"fu! SaveSess()
+    "execute 'mksession! $HOME/.vim/session.vim'
+"endfunction
 
-fu! RestoreSess()
-execute 'so $HOME/.vim/session.vim'
-if bufexists(1)
-    for l in range(1, bufnr('$'))
-        if bufwinnr(l) == -1
-            exec 'sbuffer ' . l
-        endif
-    endfor
-endif
-endfunction
+"fu! RestoreSess()
+"execute 'so $HOME/.vim/session.vim'
+"if bufexists(1)
+    "for l in range(1, bufnr('$'))
+        "if bufwinnr(l) == -1
+            "exec 'sbuffer ' . l
+        "endif
+    "endfor
+"endif
+"endfunction
 
-autocmd VimLeave * call SaveSess()
-"autocmd VimEnter * call RestoreSess()
-map <C-l> :call RestoreSess()<CR>
+"autocmd VimLeave * call SaveSess()
+""autocmd VimEnter * call RestoreSess()
+"map <C-l> :call RestoreSess()<CR>
