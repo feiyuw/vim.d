@@ -15,8 +15,8 @@ Bundle 'Solarized'
     else
         set t_Co=256
     endif
-    set background=dark
-    "set background=light
+    "set background=dark
+    set background=light
     colorscheme solarized
 Bundle 'ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
