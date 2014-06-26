@@ -10,13 +10,13 @@ Bundle 'gmarik/vundle'
 Bundle 'Solarized'
     if has("gui_running")
         set guioptions=i
-        set guifont=DejaVu\ Sans\ Mono\ 12
-        set guifontwide=DejaVu\ Sans\ Mono\ 12
+        set guifont=DejaVu\ Sans\ Mono\ 14
+        set guifontwide=DejaVu\ Sans\ Mono\ 14
     else
         set t_Co=256
     endif
-    "set background=dark
-    set background=light
+    set background=dark
+    "set background=light
     colorscheme solarized
 Bundle 'ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
@@ -48,7 +48,6 @@ Bundle 'NERD_tree-Project'
 Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
     map <c-m> ,c<space>
-Bundle 'pyflakes.vim'
 "Bundle 'UltiSnips'
     "let g:UltiSnipsExpandTrigger="<c-j>"
     "let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -66,11 +65,18 @@ Bundle 'carlobaldassi/ConqueTerm'
     endfunction
     nmap <F10> :call ToggleBashTerm()<CR>
     imap <F10> <ESC>:call ToggleBashTerm()<CR>
-Bundle 'Markdown'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'godlygeek/tabular'
+    nmap <Leader>a= :Tabularize /=<CR>
+    vmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:\zs<CR>
+    vmap <Leader>a: :Tabularize /:\zs<CR>
+Bundle 'moll/vim-node'
+Bundle 'pyflakes.vim'
 
 filetype plugin indent on
 
