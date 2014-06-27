@@ -43,18 +43,18 @@
 | `gmarik/vundle`                   | vim scripts manager                                       |
 | `Solarized`                       | color schema                                              |
 | `ctrlp.vim`                       | similar with sublime `Ctrl+P`                             |
-| `taglist.vim`                     | show outline of code                                      |
+| `godlygeek/tabular`               | show outline of code                                      |
 | `minibufexpl.vim`                 | buffer list on the top panel                              |
 | `The-NERD-tree`                   | project like file browser                                 |
 | `NERD_tree-Project`               | auto determine project root path                          |
 | `The-NERD-Commenter`              | comment/uncomment your code easilly                       |
 | `pyflakes.vim`                    | pyflakes support for python file                          |
-| `UltiSnips`                       | code snipper support                                      |
 | `carlobaldassi/ConqueTerm`        | execute command on vim panel                              |
-| `Markdown`                        | markdown syntax support                                   |
+| `plasticboy/vim-markdown`         | markdown syntax support                                   |
 | `majutsushi/tagbar`               | tagbar to replace taglist                                 |
 | `Lokaltog/vim-powerline`          | enhanced status bar                                       |
 | `Valloric/YouCompleteMe`          | good auto complete plugin                                 |
+| `moll/vim-node`                   | Node.js support                                           |
 
 ## Shortcuts
 

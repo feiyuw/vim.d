@@ -1,4 +1,5 @@
 let g:mapleader=","
+let g:rootmarkers = ['Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
 
 " Vundle settings
 filetype off
@@ -21,7 +22,7 @@ Bundle 'Solarized'
 Bundle 'ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
-    let g:ctrlp_root_markers = ['.git', '.hg', 'Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK']
+    let g:ctrlp_root_markers = g:rootmarkers
     let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
     let g:ctrlp_clear_cache_on_exit = 1
     let g:ctrlp_extensions = ['tag']
@@ -44,7 +45,7 @@ Bundle 'The-NERD-tree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
 Bundle 'NERD_tree-Project'
-    let g:NTPNames = ['Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
+    let g:NTPNames = g:rootmarkers
 Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
     map <c-m> ,c<space>
@@ -66,6 +67,7 @@ Bundle 'carlobaldassi/ConqueTerm'
     nmap <F10> :call ToggleBashTerm()<CR>
     imap <F10> <ESC>:call ToggleBashTerm()<CR>
 Bundle 'plasticboy/vim-markdown'
+    let g:vim_markdown_folding_disabled=1
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'Lokaltog/vim-powerline'
@@ -191,13 +193,13 @@ imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
 "tag设置
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py,Makefile,Rakefile,*.html set tags=.tags;
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py,*.js,Makefile,Rakefile,*.html set tags=.tags;
 set autochdir
 
 "有代码更新的时候，自动更新tags
 function! GoToProjectRoot()
     if !exists("g:NTPNames")
-      let g:NTPNames = ['Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc']
+      let g:NTPNames = g:rootmarkers
     endif
     for filename in g:NTPNames
         let file = findfile(filename, expand("%:p:h") . ';')
