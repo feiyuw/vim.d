@@ -79,6 +79,7 @@ Bundle 'godlygeek/tabular'
     vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'moll/vim-node'
 Bundle 'pyflakes.vim'
+Bundle 'fcitx.vim'
 
 filetype plugin indent on
 
