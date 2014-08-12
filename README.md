@@ -191,3 +191,4 @@
 1. [VIM Tips](http://www.rayninfo.co.uk/vimtips.html)
 1. [VIM scripts](http://vim-scripts.org)
 1. [ctrlp.vim introduction](http://zuyunfei.com/2013/08/26/vim-plugin-ctrlp/)
+1. [Practical VIM](http://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980/ref=sr_1_1?ie=UTF8&qid=1407823913&sr=8-1&keywords=practical+vim)
