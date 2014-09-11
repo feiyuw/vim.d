@@ -80,6 +80,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'moll/vim-node'
 Bundle 'pyflakes.vim'
 Bundle 'fcitx.vim'
+Bundle 'greyblake/vim-preview'
+    nmap <Leader>Pm :PreviewMarkdown<CR>
 
 filetype plugin indent on
 
@@ -102,6 +104,11 @@ set linebreak
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+"for ruby and javascript files, use 2 spaces for one tab
+autocmd BufNewFile,BufRead *.rb,*.js,*.ejs set tabstop=2
+autocmd BufNewFile,BufRead *.rb,*.js,*.ejs set softtabstop=2
+autocmd BufNewFile,BufRead *.rb,*.js,*.ejs set shiftwidth=2
 
 set ignorecase
 set smartcase
@@ -216,14 +223,15 @@ function! UpdateTags()
     call GoToProjectRoot()
     let currentDir = expand("%:p:h")
     if currentDir != $HOME
-        let cmd = 'ctags -f .tags -R .'
+        let cmd = 'ctags -f .tags -R . &'
         " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
         "let cmd = 'make tags'
         let resp = system(cmd)
+        "execute cmd
     endif
 endfunction
 
-autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java call UpdateTags()
+autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
     call GoToProjectRoot()
