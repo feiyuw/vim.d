@@ -12,7 +12,6 @@ Bundle 'Solarized'
     if has("gui_running")
         set guioptions=i
         set guifont=DejaVu\ Sans\ Mono\ 14
-        set guifontwide=DejaVu\ Sans\ Mono\ 14
     else
         set t_Co=256
     endif
@@ -49,39 +48,17 @@ Bundle 'NERD_tree-Project'
 Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
     map <c-m> ,c<space>
-"Bundle 'UltiSnips'
-    "let g:UltiSnipsExpandTrigger="<c-j>"
-    "let g:UltiSnipsJumpForwardTrigger="<c-j>"
-    "let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-Bundle 'carlobaldassi/ConqueTerm'
-    "use F10 as a toggle key for bash window
-    function! ToggleBashTerm()
-        if !exists("g:BashTerm") || g:BashTerm == 0
-            let g:BashTerm = 1
-            execute 'ConqueTermSplit bash'
-        else
-            let g:BashTerm = 0
-            execute 'close'
-        endif
-    endfunction
-    nmap <F10> :call ToggleBashTerm()<CR>
-    imap <F10> <ESC>:call ToggleBashTerm()<CR>
 Bundle 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled=1
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'godlygeek/tabular'
     nmap <Leader>a= :Tabularize /=<CR>
     vmap <Leader>a= :Tabularize /=<CR>
     nmap <Leader>a: :Tabularize /:\zs<CR>
     vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'moll/vim-node'
-Bundle 'pyflakes.vim'
-Bundle 'fcitx.vim'
-Bundle 'greyblake/vim-preview'
-    nmap <Leader>Pm :PreviewMarkdown<CR>
 
 filetype plugin indent on
 
@@ -239,24 +216,3 @@ function! RunUnitTest()
 endfunction
 
 map <F5>  :call RunUnitTest()<CR>
-
-"session设置
-"set sessionoptions=options,buffers,curdir,winsize,winpos,resize
-"fu! SaveSess()
-    "execute 'mksession! $HOME/.vim/session.vim'
-"endfunction
-
-"fu! RestoreSess()
-"execute 'so $HOME/.vim/session.vim'
-"if bufexists(1)
-    "for l in range(1, bufnr('$'))
-        "if bufwinnr(l) == -1
-            "exec 'sbuffer ' . l
-        "endif
-    "endfor
-"endif
-"endfunction
-
-"autocmd VimLeave * call SaveSess()
-""autocmd VimEnter * call RestoreSess()
-"map <C-l> :call RestoreSess()<CR>

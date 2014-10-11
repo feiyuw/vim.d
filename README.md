@@ -2,6 +2,7 @@
 
 1. It works fine on 64bit Lubuntu with VIM 7.4.
 1. It should be OK for other Linux and VIM 7.+.
+1. The vimrc_win is OK on my Windows 7 and VIM7.4.
 
 ## Install & Upgrade
 
@@ -15,7 +16,7 @@
 
         git clone https://github.com/feiyuw/vim.d.git ~/Workspace/vim.d
 
-1. Create `~/.vimrc`
+1. Create `~/.vimrc`, for windows users, please use `vimrc_win`
 
         ln -s ~/Workspace/vim.d/vimrc ~/.vimrc
 
@@ -70,7 +71,7 @@
 
     open file in vertical split window
 
-1. `<Ctrl-m>`
+1. `<Ctrl-m>` or `<Enter>`
 
     comment/uncomment code
 
@@ -184,6 +185,8 @@
     * .project
     * BUCK
     * .lvimrc
+    * README.md
+    * package.json
 
 
 ## Reference
