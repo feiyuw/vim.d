@@ -82,6 +82,7 @@ Bundle 'pyflakes.vim'
 Bundle 'fcitx.vim'
 Bundle 'greyblake/vim-preview'
     nmap <Leader>Pm :PreviewMarkdown<CR>
+Bundle 'digitaltoad/vim-jade'
 
 filetype plugin indent on
 
@@ -105,10 +106,10 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-"for ruby and javascript files, use 2 spaces for one tab
-"autocmd BufNewFile,BufRead *.rb,*.js,*.ejs set tabstop=2
-"autocmd BufNewFile,BufRead *.rb,*.js,*.ejs set softtabstop=2
-"autocmd BufNewFile,BufRead *.rb,*.js,*.ejs set shiftwidth=2
+"for ruby and template files, use 2 spaces for one tab
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs set tabstop=2
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs set softtabstop=2
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs set shiftwidth=2
 
 set ignorecase
 set smartcase

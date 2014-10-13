@@ -56,6 +56,7 @@
 | `Lokaltog/vim-powerline`          | enhanced status bar                                       |
 | `Valloric/YouCompleteMe`          | good auto complete plugin                                 |
 | `moll/vim-node`                   | Node.js support                                           |
+| `digitaltoad/vim-jade`            | jade template syntax support                              |
 
 ## Shortcuts
 

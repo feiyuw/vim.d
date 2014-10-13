@@ -59,6 +59,7 @@ Bundle 'godlygeek/tabular'
     nmap <Leader>a: :Tabularize /:\zs<CR>
     vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'moll/vim-node'
+Bundle 'digitaltoad/vim-jade'
 
 filetype plugin indent on
 
