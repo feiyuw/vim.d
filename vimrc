@@ -79,10 +79,21 @@ Bundle 'godlygeek/tabular'
     vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'moll/vim-node'
 Bundle 'pyflakes.vim'
+"Bundle 'scrooloose/syntastic'
 Bundle 'fcitx.vim'
 Bundle 'greyblake/vim-preview'
     nmap <Leader>Pm :PreviewMarkdown<CR>
 Bundle 'digitaltoad/vim-jade'
+Bundle 'rking/ag.vim'
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+Bundle 'dyng/ctrlsf.vim'
+    let g:ctrlsf_ackprg = 'ag'
+    nmap     <C-F>f <Plug>CtrlSFPrompt
+    vmap     <C-F>f <Plug>CtrlSFVwordPath
+    vmap     <C-F>F <Plug>CtrlSFVwordExec
+    nmap     <C-F>n <Plug>CtrlSFCwordPath
+    nmap     <C-F>p <Plug>CtrlSFPwordPath
+    nnoremap <C-F>o :CtrlSFOpen<CR>
 
 filetype plugin indent on
 
@@ -107,9 +118,14 @@ set softtabstop=4
 set shiftwidth=4
 
 "for ruby and template files, use 2 spaces for one tab
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs set tabstop=2
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs set softtabstop=2
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs set shiftwidth=2
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set tabstop=2
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=2
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=2
+
+"for c, .vim, python, cpp, and java files, use 4 spaces for one tab
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set tabstop=4
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=4
+autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=4
 
 set ignorecase
 set smartcase
@@ -169,11 +185,11 @@ autocmd BufNewFile * normal G
 "读入python文件，设置缩进格式
 autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
-"读入C文件，设置折叠方式为syntax
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java set foldmethod=syntax
+"读入C, JAVA, nodejs文件，设置折叠方式为syntax
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.js set foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd BufNewFile,BufRead *.py,*.sh set foldmethod=indent
+autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb set foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>

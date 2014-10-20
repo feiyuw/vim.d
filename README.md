@@ -57,6 +57,8 @@
 | `Valloric/YouCompleteMe`          | good auto complete plugin                                 |
 | `moll/vim-node`                   | Node.js support                                           |
 | `digitaltoad/vim-jade`            | jade template syntax support                              |
+| `rking/ag.vim`                    | code searching, need to install silversearcher-ag         |
+| `dyng/ctrlsf.vim`                 | a fake like sublime ctrl+shift+F                          |
 
 ## Shortcuts
 
