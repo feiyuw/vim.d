@@ -88,6 +88,7 @@ Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
 Bundle 'dyng/ctrlsf.vim'
     let g:ctrlsf_ackprg = 'ag'
+    let g:ctrlsf_auto_close = 0
     nmap     <C-F>f <Plug>CtrlSFPrompt
     vmap     <C-F>f <Plug>CtrlSFVwordPath
     vmap     <C-F>F <Plug>CtrlSFVwordExec
@@ -101,6 +102,7 @@ set nu
 set ruler
 set cursorline
 "set cursorcolumn
+set cc=80
 syntax on
 set fileencodings=utf-8,gb18030,cp936,big5
 set autoread
@@ -123,9 +125,9 @@ autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=2
 autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=2
 
 "for c, .vim, python, cpp, and java files, use 4 spaces for one tab
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set tabstop=4
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=4
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=4
+autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set tabstop=4
+autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set softtabstop=4
+autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set shiftwidth=4
 
 set ignorecase
 set smartcase
@@ -185,11 +187,11 @@ autocmd BufNewFile * normal G
 "读入python文件，设置缩进格式
 autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
-"读入C, JAVA, nodejs文件，设置折叠方式为syntax
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.js set foldmethod=syntax
+"读入C, JAVA文件，设置折叠方式为syntax
+autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java set foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb set foldmethod=indent
+autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb,*.js set foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
