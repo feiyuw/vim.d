@@ -22,6 +22,21 @@
 
 1. Open `gvim`, execute `:BundleInstall`
 
+1. Patch `ctrlsf.vim`, insert the following code into `s:Search` function ~/.vim/bundle/ctrlsf.vim/autoload/ctrlsf.vim, this is used to add project root automatically to the ag command
+
+    ```vim
+func! s:Search(args) abort
+    " TODO: added by feiyuw 2014-10-22
+    let projectRoot = expand("%:p:h")
+    for filename in g:rootmarkers
+        let file = findfile(filename, expand("%:p:h") . ';')
+        if filereadable(file)
+            let projectRoot = fnamemodify(file, ':p:h')
+            break
+        endif
+    endfor
+    ```
+
 1. Open `gvim` again, enjoy!
 
 
