@@ -95,6 +95,8 @@ Bundle 'dyng/ctrlsf.vim'
     nmap     <C-F>n <Plug>CtrlSFCwordPath
     nmap     <C-F>p <Plug>CtrlSFPwordPath
     nnoremap <C-F>o :CtrlSFOpen<CR>
+Bundle 'mfukar/robotframework-vim'
+Bundle 'ntpeters/vim-better-whitespace'
 
 filetype plugin indent on
 
@@ -120,14 +122,14 @@ set softtabstop=4
 set shiftwidth=4
 
 "for ruby and template files, use 2 spaces for one tab
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set tabstop=2
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=2
-autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=2
+"autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set tabstop=2
+"autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=2
+"autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=2
 
 "for c, .vim, python, cpp, and java files, use 4 spaces for one tab
-autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set tabstop=4
-autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set softtabstop=4
-autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set shiftwidth=4
+"autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set tabstop=4
+"autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set softtabstop=4
+"autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set shiftwidth=4
 
 set ignorecase
 set smartcase
@@ -250,6 +252,7 @@ function! UpdateTags()
     endif
 endfunction
 
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,Makefile execute ":StripWhitespace"
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
