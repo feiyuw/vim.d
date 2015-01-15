@@ -49,10 +49,6 @@ Bundle 'NERD_tree-Project'
 Bundle 'The-NERD-Commenter'
     let NERDShutUp=1
     map <c-m> ,c<space>
-"Bundle 'UltiSnips'
-    "let g:UltiSnipsExpandTrigger="<c-j>"
-    "let g:UltiSnipsJumpForwardTrigger="<c-j>"
-    "let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Bundle 'carlobaldassi/ConqueTerm'
     "use F10 as a toggle key for bash window
     function! ToggleBashTerm()
@@ -70,7 +66,9 @@ Bundle 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled=1
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'mbbill/undotree'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'godlygeek/tabular'
     nmap <Leader>a= :Tabularize /=<CR>
@@ -78,11 +76,8 @@ Bundle 'godlygeek/tabular'
     nmap <Leader>a: :Tabularize /:\zs<CR>
     vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'moll/vim-node'
-Bundle 'pyflakes.vim'
-"Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'fcitx.vim'
-Bundle 'greyblake/vim-preview'
-    nmap <Leader>Pm :PreviewMarkdown<CR>
 Bundle 'digitaltoad/vim-jade'
 Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -97,6 +92,9 @@ Bundle 'dyng/ctrlsf.vim'
     nnoremap <C-F>o :CtrlSFOpen<CR>
 Bundle 'mfukar/robotframework-vim'
 Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'exvim/ex-matchit'
+Bundle 'tpope/vim-surround'
+Bundle 'elzr/vim-json'
 
 filetype plugin indent on
 
@@ -120,16 +118,6 @@ set linebreak
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
-"for ruby and template files, use 2 spaces for one tab
-"autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set tabstop=2
-"autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set softtabstop=2
-"autocmd BufNewFile,BufRead *.rb,*.jade,*.ejs,*.js set shiftwidth=2
-
-"for c, .vim, python, cpp, and java files, use 4 spaces for one tab
-"autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set tabstop=4
-"autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set softtabstop=4
-"autocmd BufNewFile,BufRead *.c,*.cpp,*.py,*.vim,*.java set shiftwidth=4
 
 set ignorecase
 set smartcase
