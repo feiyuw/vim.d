@@ -77,6 +77,15 @@ Bundle 'godlygeek/tabular'
     vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'moll/vim-node'
 Bundle 'scrooloose/syntastic'
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_javascript_checkers = ['gjslint']
+    let g:syntastic_python_checkers = ['pylint']
 Bundle 'fcitx.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'rking/ag.vim'
