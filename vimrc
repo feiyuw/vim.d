@@ -63,13 +63,14 @@ Bundle 'carlobaldassi/ConqueTerm'
     nmap <F10> :call ToggleBashTerm()<CR>
     imap <F10> <ESC>:call ToggleBashTerm()<CR>
 Bundle 'plasticboy/vim-markdown'
-    let g:vim_markdown_folding_disabled=1
+    let g:vim_markdown_folding_disabled = 1
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mbbill/undotree'
 Bundle 'Valloric/YouCompleteMe'
+    let g:ycm_autoclose_preview_window_after_completion = 1
 Bundle 'godlygeek/tabular'
     nmap <Leader>a= :Tabularize /=<CR>
     vmap <Leader>a= :Tabularize /=<CR>
