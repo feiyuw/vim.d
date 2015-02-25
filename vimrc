@@ -41,14 +41,14 @@ Bundle 'fholgado/minibufexpl.vim'
     noremap <C-Right> <C-W>l
     noremap <C-TAB> :MBEbn<CR>
     noremap <C-S-TAB> :MBEbp<CR>
-Bundle 'The-NERD-tree'
+Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
 Bundle 'NERD_tree-Project'
     let g:NTPNames = g:rootmarkers
-Bundle 'The-NERD-Commenter'
+Bundle 'scrooloose/nerdcommenter'
     let NERDShutUp=1
-    map <c-m> ,c<space>
+    map <leader>m <leader>c<space>
 Bundle 'carlobaldassi/ConqueTerm'
     "use F10 as a toggle key for bash window
     function! ToggleBashTerm()
@@ -250,7 +250,7 @@ function! UpdateTags()
     endif
 endfunction
 
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,Makefile execute ":StripWhitespace"
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile execute ":StripWhitespace"
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
@@ -259,24 +259,3 @@ function! RunUnitTest()
 endfunction
 
 map <F5>  :call RunUnitTest()<CR>
-
-"session设置
-"set sessionoptions=options,buffers,curdir,winsize,winpos,resize
-"fu! SaveSess()
-    "execute 'mksession! $HOME/.vim/session.vim'
-"endfunction
-
-"fu! RestoreSess()
-"execute 'so $HOME/.vim/session.vim'
-"if bufexists(1)
-    "for l in range(1, bufnr('$'))
-        "if bufwinnr(l) == -1
-            "exec 'sbuffer ' . l
-        "endif
-    "endfor
-"endif
-"endfunction
-
-"autocmd VimLeave * call SaveSess()
-""autocmd VimEnter * call RestoreSess()
-"map <C-l> :call RestoreSess()<CR>
