@@ -86,7 +86,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
     let g:syntastic_javascript_checkers = ['gjslint']
-    let g:syntastic_python_checkers = ['pylint']
+    let g:syntastic_python_checkers = ['pyflakes']
 Bundle 'fcitx.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'rking/ag.vim'
@@ -191,7 +191,7 @@ autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,f
 autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java set foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb,*.js set foldmethod=indent
+autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb,*.js,*.tpl set foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -250,7 +250,7 @@ function! UpdateTags()
     endif
 endfunction
 
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile execute ":StripWhitespace"
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,*.tpl,*.json execute ":StripWhitespace"
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
