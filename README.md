@@ -21,22 +21,6 @@
         ln -s ~/Workspace/vim.d/vimrc ~/.vimrc
 
 1. Open `gvim`, execute `:BundleInstall`
-
-1. Patch `ctrlsf.vim`, insert the following code into `s:Search` function ~/.vim/bundle/ctrlsf.vim/autoload/ctrlsf.vim, this is used to add project root automatically to the ag command
-
-    ```vim
-func! s:Search(args) abort
-    " TODO: added by feiyuw 2014-10-22
-    let projectRoot = expand("%:p:h")
-    for filename in g:rootmarkers
-        let file = findfile(filename, expand("%:p:h") . ';')
-        if filereadable(file)
-            let projectRoot = fnamemodify(file, ':p:h')
-            break
-        endif
-    endfor
-    ```
-
 1. Open `gvim` again, enjoy!
 
 
@@ -44,36 +28,47 @@ func! s:Search(args) abort
 
 1. Update vim.d
 
-        cd ~/Workspace/vim.d
-        git pull
+```bash
+    cd ~/Workspace/vim.d
+    git pull
+```
 
 1. Open `gvim`, execute `:BundleClean`
-
 1. Open `gvim`, execute `:BundleUpdate`
 
 
 ## Plugins
 
-| *plugin*                          |   *description*                                           |
-| --------------------------------- | --------------------------------------------------------- |
-| `gmarik/vundle`                   | vim scripts manager                                       |
-| `Solarized`                       | color schema                                              |
-| `ctrlp.vim`                       | similar with sublime `Ctrl+P`                             |
-| `godlygeek/tabular`               | show outline of code                                      |
-| `minibufexpl.vim`                 | buffer list on the top panel                              |
-| `The-NERD-tree`                   | project like file browser                                 |
-| `NERD_tree-Project`               | auto determine project root path                          |
-| `The-NERD-Commenter`              | comment/uncomment your code easilly                       |
-| `pyflakes.vim`                    | pyflakes support for python file                          |
-| `carlobaldassi/ConqueTerm`        | execute command on vim panel                              |
-| `plasticboy/vim-markdown`         | markdown syntax support                                   |
-| `majutsushi/tagbar`               | tagbar to replace taglist                                 |
-| `Lokaltog/vim-powerline`          | enhanced status bar                                       |
-| `Valloric/YouCompleteMe`          | good auto complete plugin                                 |
-| `moll/vim-node`                   | Node.js support                                           |
-| `digitaltoad/vim-jade`            | jade template syntax support                              |
-| `rking/ag.vim`                    | code searching, need to install silversearcher-ag         |
-| `dyng/ctrlsf.vim`                 | a fake like sublime ctrl+shift+F                          |
+The plugins I used are:
+
+* gmarik/vundle
+* altercation/vim-colors-solarized
+* ctrlpvim/ctrlp.vim
+* tacahiroy/ctrlp-funky
+* FelikZ/ctrlp-py-matcher
+* weynhamz/vim-plugin-minibufexpl
+* scrooloose/nerdtree
+* NERD_tree-Project
+* scrooloose/nerdcommenter
+* plasticboy/vim-markdown
+* majutsushi/tagbar
+* bling/vim-airline
+* Valloric/YouCompleteMe
+* godlygeek/tabular
+* scrooloose/syntastic
+* fcitx.vim
+* digitaltoad/vim-jade
+* rking/ag.vim
+* mfukar/robotframework-vim
+* ntpeters/vim-better-whitespace
+* elzr/vim-json
+* tpope/vim-surround
+* pangloss/vim-javascript
+* terryma/vim-multiple-cursors
+* othree/html5.vim
+* klen/python-mode
+* airblade/vim-gitgutter
+
 
 ## Shortcuts
 
@@ -89,7 +84,7 @@ func! s:Search(args) abort
 
     open file in vertical split window
 
-1. `<Ctrl-m>` or `<Enter>`
+1. `,m`
 
     comment/uncomment code
 
@@ -98,16 +93,12 @@ func! s:Search(args) abort
     open/close tag bar on the right panel
 
 1. `<F5>`
-    
+
     execute "make test" in project root
 
 1. `<F12>`
 
     open/close project browser on the left panel
-
-1. `<F10>`
-
-    open/close bash on the bottom panel
 
 1. `<Ctrl-Tab>`
 
@@ -151,7 +142,7 @@ func! s:Search(args) abort
 ### Edit file in column
 
 1. in `normal` mode, `<Ctrl-v>` start to select column, `<Shift-v>` to select multiple lines
-1. after select several columns, 
+1. after select several columns,
     * `I` used to add content before cursor column
     * `A` used to add content after cursor column
     * `r` used to modify content under cursor

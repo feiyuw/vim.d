@@ -8,18 +8,19 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Solarized'
+Bundle 'altercation/vim-colors-solarized'
+    colorscheme solarized
     if has("gui_running")
         set guioptions=i
         set guifont=DejaVu\ Sans\ Mono\ 14
         set guifontwide=DejaVu\ Sans\ Mono\ 14
+        set background=dark
     else
+        let g:solarized_termcolors=256
         set t_Co=256
+        set background=light
     endif
-    set background=dark
-    "set background=light
-    colorscheme solarized
-Bundle 'ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
     let g:ctrlp_root_markers = g:rootmarkers
@@ -31,7 +32,9 @@ Bundle 'ctrlp.vim'
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags
-Bundle 'fholgado/minibufexpl.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+Bundle 'FelikZ/ctrlp-py-matcher'
+Bundle 'weynhamz/vim-plugin-minibufexpl'
     let g:miniBufExplMaxSize = 2
     let g:miniBufExplBuffersNeeded = 1
     let g:miniBufExplCycleArround = 1
@@ -49,26 +52,11 @@ Bundle 'NERD_tree-Project'
 Bundle 'scrooloose/nerdcommenter'
     let NERDShutUp=1
     map <leader>m <leader>c<space>
-Bundle 'carlobaldassi/ConqueTerm'
-    "use F10 as a toggle key for bash window
-    function! ToggleBashTerm()
-        if !exists("g:BashTerm") || g:BashTerm == 0
-            let g:BashTerm = 1
-            execute 'ConqueTermSplit bash'
-        else
-            let g:BashTerm = 0
-            execute 'close'
-        endif
-    endfunction
-    nmap <F10> :call ToggleBashTerm()<CR>
-    imap <F10> <ESC>:call ToggleBashTerm()<CR>
 Bundle 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled = 1
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mbbill/undotree'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
 Bundle 'godlygeek/tabular'
@@ -76,7 +64,6 @@ Bundle 'godlygeek/tabular'
     vmap <Leader>a= :Tabularize /=<CR>
     nmap <Leader>a: :Tabularize /:\zs<CR>
     vmap <Leader>a: :Tabularize /:\zs<CR>
-Bundle 'moll/vim-node'
 Bundle 'scrooloose/syntastic'
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -91,20 +78,16 @@ Bundle 'fcitx.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
-Bundle 'dyng/ctrlsf.vim'
-    let g:ctrlsf_ackprg = 'ag'
-    let g:ctrlsf_auto_close = 0
-    nmap     <C-F>f <Plug>CtrlSFPrompt
-    vmap     <C-F>f <Plug>CtrlSFVwordPath
-    vmap     <C-F>F <Plug>CtrlSFVwordExec
-    nmap     <C-F>n <Plug>CtrlSFCwordPath
-    nmap     <C-F>p <Plug>CtrlSFPwordPath
-    nnoremap <C-F>o :CtrlSFOpen<CR>
 Bundle 'mfukar/robotframework-vim'
 Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'exvim/ex-matchit'
-Bundle 'tpope/vim-surround'
 Bundle 'elzr/vim-json'
+Bundle 'tpope/vim-surround'
+Bundle 'pangloss/vim-javascript'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'othree/html5.vim'
+Bundle 'klen/python-mode'
+Bundle 'airblade/vim-gitgutter'
+
 
 filetype plugin indent on
 
@@ -191,7 +174,7 @@ autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,f
 autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java set foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb,*.js,*.tpl set foldmethod=indent
+autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb,*.js,*.tpl,*.ejs set foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -242,7 +225,7 @@ function! UpdateTags()
     call GoToProjectRoot()
     let currentDir = expand("%:p:h")
     if currentDir != $HOME
-        let cmd = 'ctags -f .tags -R . &'
+        let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
         " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
         "let cmd = 'make tags'
         let resp = system(cmd)
@@ -250,7 +233,7 @@ function! UpdateTags()
     endif
 endfunction
 
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,*.tpl,*.json execute ":StripWhitespace"
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
