@@ -66,7 +66,6 @@ The plugins I used are:
 * pangloss/vim-javascript
 * terryma/vim-multiple-cursors
 * othree/html5.vim
-* klen/python-mode
 * airblade/vim-gitgutter
 
 

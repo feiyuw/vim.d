@@ -85,7 +85,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'othree/html5.vim'
-Bundle 'klen/python-mode'
 Bundle 'airblade/vim-gitgutter'
 
 
