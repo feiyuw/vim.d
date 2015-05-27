@@ -87,6 +87,10 @@ The plugins I used are:
 
     comment/uncomment code
 
+1. `,f`
+
+    open function list of current file, like `Ctrl-R` in sublime
+
 1. `<F4>`
 
     open/close tag bar on the right panel

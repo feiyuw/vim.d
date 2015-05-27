@@ -31,8 +31,10 @@ Bundle 'ctrlpvim/ctrlp.vim'
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,.tags
 Bundle 'tacahiroy/ctrlp-funky'
+    nnoremap <Leader>f :CtrlPFunky<Cr>
+    let g:ctrlp_funky_matchtype = 'path'
 Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'weynhamz/vim-plugin-minibufexpl'
     let g:miniBufExplMaxSize = 2
