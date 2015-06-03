@@ -59,6 +59,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
 Bundle 'godlygeek/tabular'
@@ -85,7 +86,6 @@ Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'elzr/vim-json'
 Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
-Bundle 'terryma/vim-multiple-cursors'
 Bundle 'othree/html5.vim'
 Bundle 'airblade/vim-gitgutter'
 
