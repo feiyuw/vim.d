@@ -12,7 +12,7 @@ Bundle 'altercation/vim-colors-solarized'
     colorscheme solarized
     if has("gui_running")
         set guioptions=i
-        set guifont=DejaVu\ Sans\ Mono\ 14
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
         set guifontwide=DejaVu\ Sans\ Mono\ 14
         set background=dark
     else
@@ -59,6 +59,8 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'bling/vim-airline'
+    let g:airline_powerline_fonts = 1
+    set noshowmode
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
@@ -234,7 +236,7 @@ function! UpdateTags()
     endif
 endfunction
 
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()

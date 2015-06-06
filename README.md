@@ -21,6 +21,15 @@
         ln -s ~/Workspace/vim.d/vimrc ~/.vimrc
 
 1. Open `gvim`, execute `:BundleInstall`
+1. Patch `power-line` font
+
+    ```sh
+    mkdir ~/.fonts
+    git clone https://github.com/powerline/fonts.git ~/.fonts/powerline-fonts
+    cd ~/.fonts/powerline-fonts
+    ./install.sh
+    ```
+
 1. Open `gvim` again, enjoy!
 
 
