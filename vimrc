@@ -14,12 +14,10 @@ Bundle 'altercation/vim-colors-solarized'
         set guioptions=i
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
         set guifontwide=DejaVu\ Sans\ Mono\ 14
-        set background=dark
-    else
-        let g:solarized_termcolors=256
-        set t_Co=256
-        set background=light
     endif
+    set t_Co=256
+    let g:solarized_termcolors=256
+    set background=dark
 Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
@@ -98,7 +96,7 @@ set nu
 set ruler
 set cursorline
 "set cursorcolumn
-set cc=80
+set cc=120
 syntax on
 set fileencodings=utf-8,gb18030,cp936,big5
 set autoread
