@@ -77,6 +77,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_check_on_wq = 0
     let g:syntastic_javascript_checkers = ['gjslint']
     let g:syntastic_python_checkers = ['pyflakes']
+    let g:syntastic_java_checkers = ['findbugs']
 Bundle 'fcitx.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'rking/ag.vim'
