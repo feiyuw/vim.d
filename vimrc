@@ -89,6 +89,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/html5.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'sudar/vim-arduino-syntax'
 
 
 filetype plugin indent on
