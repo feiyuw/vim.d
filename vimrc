@@ -62,6 +62,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
+    nnoremap <leader>jd :YcmCompleter GoTo<CR>
 Bundle 'godlygeek/tabular'
     nmap <Leader>a= :Tabularize /=<CR>
     vmap <Leader>a= :Tabularize /=<CR>
