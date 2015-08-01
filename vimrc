@@ -62,7 +62,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
-    nnoremap <leader>jd :YcmCompleter GoTo<CR>
+    nmap <C-]> :YcmCompleter GoTo<CR>
 Bundle 'godlygeek/tabular'
     nmap <Leader>a= :Tabularize /=<CR>
     vmap <Leader>a= :Tabularize /=<CR>
@@ -224,20 +224,20 @@ function! GoToProjectRoot()
     endfor
 endfunction
 
-function! UpdateTags()
-    call GoToProjectRoot()
-    let currentDir = expand("%:p:h")
-    if currentDir != $HOME
-        let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
-        " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-        "let cmd = 'make tags'
-        let resp = system(cmd)
-        "execute cmd
-    endif
-endfunction
+"function! UpdateTags()
+    "call GoToProjectRoot()
+    "let currentDir = expand("%:p:h")
+    "if currentDir != $HOME
+        "let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
+        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
+        ""let cmd = 'make tags'
+        "let resp = system(cmd)
+        ""execute cmd
+    "endif
+"endfunction
 
 autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
-autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
+"autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
     call GoToProjectRoot()
