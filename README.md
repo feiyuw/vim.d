@@ -198,23 +198,9 @@ The plugins I used are:
 1. `@a` execute the macro
 1. `@@` execute the last executed macro
 
+## Screenshot
 
-### Tags
-
-1. VIM will determine `tags` file automatically
-1. When file saved, `tags` file under `project root` will be updated automatically
-1. `project root` is determined the root directory of project, the file names to identify the `project root` include:
-    * Makefile,
-    * makefile,
-    * setup.py
-    * pom.xml
-    * build.xml
-    * .project
-    * BUCK
-    * .lvimrc
-    * README.md
-    * package.json
-
+![panel](/img/panel.png "VIM Panel")
 
 ## Reference
 
