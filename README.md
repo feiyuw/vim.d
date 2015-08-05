@@ -29,7 +29,13 @@
     cd ~/.fonts/powerline-fonts
     ./install.sh
     ```
+1. Install `YouCompleteMe`
 
+    ```sh
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.sh
+    ```
+1. Install `ctags`
 1. Open `gvim` again, enjoy!
 
 
