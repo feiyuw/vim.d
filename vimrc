@@ -29,7 +29,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,.tags
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/bower_components/*.tags
 Bundle 'tacahiroy/ctrlp-funky'
     nnoremap <Leader>f :CtrlPFunky<Cr>
     let g:ctrlp_funky_matchtype = 'path'
@@ -63,6 +63,16 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
     nmap <C-]> :YcmCompleter GoTo<CR>
+    let g:ycm_filetype_blacklist = {
+          \ 'tagbar' : 1,
+          \ 'qf' : 1,
+          \ 'notes' : 1,
+          \ 'markdown' : 1,
+          \ 'unite' : 1,
+          \ 'text' : 1,
+          \ 'vimwiki' : 1,
+          \ 'gitcommit' : 1,
+          \}
 Bundle 'godlygeek/tabular'
     nmap <Leader>a= :Tabularize /=<CR>
     vmap <Leader>a= :Tabularize /=<CR>
