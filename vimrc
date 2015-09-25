@@ -26,7 +26,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_clear_cache_on_exit = 1
     let g:ctrlp_extensions = ['tag']
     let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+        \ 'dir':  '\v[\/]\.(git|hg|svn|dist)$',
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/bower_components/*.tags
