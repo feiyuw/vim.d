@@ -101,6 +101,7 @@ Bundle 'mxw/vim-jsx'
 Bundle 'othree/html5.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'sudar/vim-arduino-syntax'
+Bundle 'mattn/emmet-vim'
 
 
 filetype plugin indent on
