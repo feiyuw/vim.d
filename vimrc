@@ -135,9 +135,6 @@ set autoindent
 set smartindent
 set hidden
 set linebreak
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 
 set ignorecase
 set smartcase
@@ -194,14 +191,19 @@ let g:netrw_list_hide= '(^\..*|.*\.pyc|.*\.class)'
 "新建文件后，自动定位到文件末尾
 autocmd BufNewFile * normal G
 
-"读入python文件，设置缩进格式
-autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
+"Python/java/ruby设置Tab宽度为4
+autocmd FileType python,java,ruby setlocal tabstop=4 softtabstop=4 shiftwidth=4
+"javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
+autocmd FileType jade,html,ejs,tpl,javascript,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+"python，设置缩进格式
+autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
 "读入C, JAVA文件，设置折叠方式为syntax
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java set foldmethod=syntax
+autocmd FileType c,cpp,java setlocal foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd BufNewFile,BufRead *.py,*.sh,*.jade,*.rb,*.js,*.tpl,*.ejs set foldmethod=indent
+autocmd FileType python,sh,jade,ruby,tpl,ejs setlocal foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -230,7 +232,7 @@ imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
 "tag设置
-autocmd BufNewFile,BufRead *.[ch],*.cpp,*.java,*.py,*.js,Makefile,Rakefile,*.html set tags=.tags;
+autocmd FileType c,cpp,h,java,python,Makefile,Rakefile setlocal tags=.tags;
 set autochdir
 
 "有代码更新的时候，自动更新tags
@@ -260,7 +262,7 @@ endfunction
     "endif
 "endfunction
 
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.stylus,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 "autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 
 function! RunUnitTest()
