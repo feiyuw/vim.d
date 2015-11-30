@@ -123,7 +123,7 @@ set cursorline
 "set cursorcolumn
 set cc=120
 syntax on
-set fileencodings=utf-8,gb18030,cp936,big5
+set fileencodings=utf-8,gb18030,cp936,big5,utf-16le
 set autoread
 set list
 set listchars=tab:>-,trail:-
@@ -194,7 +194,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 "Python/java/ruby设置Tab宽度为4
-autocmd FileType python,java,ruby setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType python,java,ruby,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
 "javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
 autocmd FileType jade,html,ejs,tpl,javascript,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
