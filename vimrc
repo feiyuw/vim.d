@@ -113,6 +113,7 @@ Bundle 'sudar/vim-arduino-syntax'
 Bundle 'mattn/emmet-vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'moll/vim-node'
+Bundle 'jiangmiao/auto-pairs'
 
 
 filetype plugin indent on
