@@ -234,11 +234,6 @@ cmap <leader>+ <C-r>+
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
-"tag设置
-autocmd FileType c,cpp,h,java,python,Makefile,Rakefile setlocal tags=.tags;
-set autochdir
-
-"有代码更新的时候，自动更新tags
 function! GoToProjectRoot()
     if !exists("g:NTPNames")
       let g:NTPNames = g:rootmarkers
@@ -253,6 +248,11 @@ function! GoToProjectRoot()
     endfor
 endfunction
 
+"tag设置
+autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
+set autochdir
+
+"有代码更新的时候，自动更新tags
 "function! UpdateTags()
     "call GoToProjectRoot()
     "let currentDir = expand("%:p:h")
@@ -265,8 +265,8 @@ endfunction
     "endif
 "endfunction
 
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.stylus,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 "autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.stylus,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 
 function! RunUnitTest()
     call GoToProjectRoot()
