@@ -36,6 +36,7 @@ Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 Bundle 'NERD_tree-Project'
     let g:NTPNames = g:rootmarkers
 Bundle 'scrooloose/nerdcommenter'
@@ -102,11 +103,11 @@ Bundle 'mxw/vim-jsx'
     let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 Bundle 'othree/html5.vim'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'sudar/vim-arduino-syntax'
-Bundle 'mattn/emmet-vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'moll/vim-node'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
 
 filetype plugin indent on
 
