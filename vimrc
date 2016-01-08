@@ -51,6 +51,7 @@ Bundle 'bling/vim-airline'
     let g:airline#extensions#tabline#enabled = 1
     map <C-TAB> :bnext<CR>
     set noshowmode
+    set laststatus=2
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
