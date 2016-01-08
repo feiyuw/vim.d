@@ -35,7 +35,6 @@
     cd ~/.vim/bundle/YouCompleteMe
     ./install.sh
     ```
-1. Install `ctags`
 1. Open `gvim` again, enjoy!
 
 
@@ -61,17 +60,16 @@ The plugins I used are:
 * ctrlpvim/ctrlp.vim
 * tacahiroy/ctrlp-funky
 * FelikZ/ctrlp-py-matcher
-* weynhamz/vim-plugin-minibufexpl
 * scrooloose/nerdtree
 * NERD_tree-Project
 * scrooloose/nerdcommenter
 * plasticboy/vim-markdown
 * majutsushi/tagbar
 * bling/vim-airline
+* tpope/vim-fugitive
 * Valloric/YouCompleteMe
 * godlygeek/tabular
 * scrooloose/syntastic
-* fcitx.vim
 * digitaltoad/vim-jade
 * rking/ag.vim
 * mfukar/robotframework-vim
@@ -79,9 +77,14 @@ The plugins I used are:
 * elzr/vim-json
 * tpope/vim-surround
 * pangloss/vim-javascript
-* terryma/vim-multiple-cursors
+* mxw/vim-jsx
 * othree/html5.vim
 * airblade/vim-gitgutter
+* wavded/vim-stylus
+* moll/vim-node
+* jiangmiao/auto-pairs
+* xolox/vim-misc
+* xolox/vim-session
 
 
 ## Shortcuts
@@ -130,21 +133,6 @@ The plugins I used are:
 1. `,;`
 
     auto complete
-
-1. `,t`
-
-    open new tab
-
-1. `,n`
-
-    go to next tab
-
-1. `<Ctrl-j>`
-
-    * in `insert` mode, this is used to complete the snippet
-    * try to type `img<Ctrl-j>` when editing a .md file, see what will happen
-    * try to type `<Ctrl-j>` when you want to jump to next edit path
-    * try `<Ctrl-k>` to jump back
 
 1. `,c`
 
