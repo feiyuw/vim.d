@@ -33,16 +33,6 @@ Bundle 'tacahiroy/ctrlp-funky'
     nnoremap <Leader>f :CtrlPFunky<Cr>
     let g:ctrlp_funky_matchtype = 'path'
 Bundle 'FelikZ/ctrlp-py-matcher'
-Bundle 'weynhamz/vim-plugin-minibufexpl'
-    let g:miniBufExplMaxSize = 2
-    let g:miniBufExplBuffersNeeded = 1
-    let g:miniBufExplCycleArround = 1
-    noremap <C-Down> <C-W>j
-    noremap <C-Up> <C-W>k
-    noremap <C-Left> <C-W>h
-    noremap <C-Right> <C-W>l
-    noremap <C-TAB> :MBEbn<CR>
-    noremap <C-S-TAB> :MBEbp<CR>
 Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
@@ -57,6 +47,8 @@ Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'bling/vim-airline'
     let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
+    map <C-TAB> :bnext<CR>
     set noshowmode
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
@@ -85,7 +77,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_auto_loc_list = 0
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
-    let g:syntastic_javascript_checkers = ['jshint']
+    let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_python_checkers = ['pyflakes']
     let g:syntastic_java_checkers = ['findbugs']
 Bundle 'digitaltoad/vim-jade'
@@ -107,6 +99,7 @@ Bundle 'pangloss/vim-javascript'
     let g:javascript_conceal_static     = "•"
     let g:javascript_conceal_super      = "Ω"
 Bundle 'mxw/vim-jsx'
+    let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 Bundle 'othree/html5.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'sudar/vim-arduino-syntax'
@@ -114,7 +107,6 @@ Bundle 'mattn/emmet-vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'moll/vim-node'
 Bundle 'jiangmiao/auto-pairs'
-
 
 filetype plugin indent on
 
