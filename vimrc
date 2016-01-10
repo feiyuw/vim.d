@@ -50,6 +50,7 @@ Bundle 'bling/vim-airline'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
     map <C-TAB> :bnext<CR>
+    map <C-S-TAB> :bprevious<CR>
     set noshowmode
     set laststatus=2
 Bundle 'tpope/vim-fugitive'
