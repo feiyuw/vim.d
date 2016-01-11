@@ -188,6 +188,7 @@ The plugins I used are:
 ## Screenshot
 
 ![panel](/img/panel.png "VIM Panel")
+![usage](/img/usage.gif "VIM Usage")
 
 ## Reference
 
