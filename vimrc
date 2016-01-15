@@ -56,7 +56,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
-    nmap <C-]> :YcmCompleter GoTo<CR>
+    "nmap <C-]> :YcmCompleter GoTo<CR>
     let g:ycm_filetype_blacklist = {
           \ 'tagbar' : 1,
           \ 'qf' : 1,
@@ -250,19 +250,19 @@ autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=
 set autochdir
 
 "有代码更新的时候，自动更新tags
-"function! UpdateTags()
-    "call GoToProjectRoot()
-    "let currentDir = expand("%:p:h")
-    "if currentDir != $HOME
-        "let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
-        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-        ""let cmd = 'make tags'
-        "let resp = system(cmd)
-        ""execute cmd
-    "endif
-"endfunction
+function! UpdateTags()
+    call GoToProjectRoot()
+    let currentDir = expand("%:p:h")
+    if currentDir != $HOME
+        let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
+        " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
+        "let cmd = 'make tags'
+        let resp = system(cmd)
+        "execute cmd
+    endif
+endfunction
 
-"autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
+autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.stylus,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 
 function! RunUnitTest()
