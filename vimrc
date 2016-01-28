@@ -108,10 +108,6 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'wavded/vim-stylus'
 Bundle 'moll/vim-node'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
-    let g:session_autosave = 'yes'
-    let g:session_autoload = 'yes'
 
 filetype plugin indent on
 
