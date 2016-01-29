@@ -270,7 +270,7 @@ function! UpdateTags()
 endfunction
 
 autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.stylus,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
+autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.styl,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 
 function! RunUnitTest()
     call GoToProjectRoot()
