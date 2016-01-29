@@ -18,6 +18,15 @@ Bundle 'altercation/vim-colors-solarized'
     set t_Co=256
     let g:solarized_termcolors=256
     set background=light
+
+    function! BackgroundSwitch()
+        if &background == 'light'
+            set background=dark
+        else
+            set background=light
+        endif
+    endfunction
+    map <F7> :call BackgroundSwitch()<CR>
 Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
