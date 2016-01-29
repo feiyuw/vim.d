@@ -17,7 +17,7 @@ Bundle 'altercation/vim-colors-solarized'
     endif
     set t_Co=256
     let g:solarized_termcolors=256
-    set background=dark
+    set background=light
 Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
@@ -47,7 +47,9 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'bling/vim-airline'
-    let g:airline_powerline_fonts = 1
+    if has("gui_running")
+        let g:airline_powerline_fonts = 1
+    endif
     let g:airline#extensions#tabline#enabled = 1
     map <C-TAB> :bnext<CR>
     map <C-S-TAB> :bprevious<CR>
