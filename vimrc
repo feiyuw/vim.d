@@ -207,7 +207,7 @@ autocmd FileType jade,html,ejs,tpl,javascript,stylus setlocal tabstop=2 softtabs
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
 "读入C, JAVA文件，设置折叠方式为syntax
-autocmd FileType c,cpp,java setlocal foldmethod=syntax
+autocmd FileType c,cpp,java,javascript setlocal foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
 autocmd FileType python,sh,jade,ruby,tpl,ejs setlocal foldmethod=indent
