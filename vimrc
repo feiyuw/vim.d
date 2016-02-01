@@ -120,6 +120,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'wavded/vim-stylus'
 Bundle 'moll/vim-node'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'ekalinin/Dockerfile.vim'
 
 filetype plugin indent on
 
