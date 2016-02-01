@@ -55,7 +55,7 @@ Bundle 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled = 1
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
     if has("gui_running")
         let g:airline_powerline_fonts = 1
     endif
@@ -64,6 +64,7 @@ Bundle 'bling/vim-airline'
     map <C-S-TAB> :bprevious<CR>
     set noshowmode
     set laststatus=2
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
