@@ -158,10 +158,15 @@ else
 endif
 
 " 插入模式下移动
-"inoremap <c-j> <down>
-"inoremap <c-k> <up>
-"inoremap <c-l> <right>
-"inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+inoremap <c-h> <left>
+" 在窗口间移动
+noremap <C-Down> <C-W>j
+noremap <C-Up> <C-W>k
+noremap <C-Left> <C-W>h
+noremap <C-Right> <C-W>l
 
 "自动格式化
 set formatoptions=tcrqn
