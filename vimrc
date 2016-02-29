@@ -122,6 +122,7 @@ Bundle 'moll/vim-node'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'fatih/vim-go'
+Bundle 'fcitx.vim'
 
 filetype plugin indent on
 
