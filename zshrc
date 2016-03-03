@@ -101,6 +101,3 @@ export ATOM_NODE_URL=http://gh-contractor-zcbenz.s3.amazonaws.com/atom-shell/dis
 
 export HADOOP_HOME=/hadoop/install/hadoop
 export PATH=$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HOME/app:$PATH
-
-# use vim key mapping
-bindkey -v

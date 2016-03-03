@@ -17,7 +17,7 @@ Bundle 'altercation/vim-colors-solarized'
     endif
     set t_Co=256
     let g:solarized_termcolors=256
-    set background=dark
+    set background=light
 
     function! BackgroundSwitch()
         if &background == 'light'
