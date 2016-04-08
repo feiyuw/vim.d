@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras python node docker npm pip vi-mode)
+plugins=(git git-extras python node docker npm pip vi-mode tmux)
 
 # User configuration
 
@@ -88,12 +88,14 @@ alias tohztdltev01="ssh root@hztdltev01"
 alias togitlab="ssh root@becrtt01.china.nsn-net.net"
 alias tobeclov02="ssh root@10.135.236.174"
 alias clojure="java -jar /home/zhang/app/clojure-1.7.0/clojure-1.7.0.jar"
-alias to30="ssh csrd@10.56.219.30"
 alias to31="ssh csrd@10.56.219.31"
 alias to32="ssh csrd@10.56.219.32"
 alias to33="ssh csrd@10.56.219.33"
 alias to34="ssh csrd@10.56.219.34"
+alias to35="ssh root@10.68.160.35"
+alias to36="ssh root@10.68.160.36"
 alias to234="ssh root@10.68.165.234"
+alias to181="ssh zhang@10.140.23.181"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
@@ -101,3 +103,6 @@ export ATOM_NODE_URL=http://gh-contractor-zcbenz.s3.amazonaws.com/atom-shell/dis
 
 export HADOOP_HOME=/hadoop/install/hadoop
 export PATH=$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HOME/app:$PATH
+bindkey -e
+# for tmux 256 color
+[[ $TMUX = "" ]] && export TERM="xterm-256color"

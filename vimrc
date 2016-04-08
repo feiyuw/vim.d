@@ -33,7 +33,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_root_markers = g:rootmarkers
     let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
     let g:ctrlp_clear_cache_on_exit = 1
-    let g:ctrlp_extensions = ['tag']
+    "let g:ctrlp_extensions = ['tag']
     let g:ctrlp_custom_ignore = {
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
@@ -68,7 +68,7 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion = 1
-    "nmap <C-]> :YcmCompleter GoTo<CR>
+    nmap <C-]> :YcmCompleter GoTo<CR>
     let g:ycm_filetype_blacklist = {
           \ 'tagbar' : 1,
           \ 'qf' : 1,
@@ -210,7 +210,7 @@ set shiftwidth=4
 "Python/java/ruby设置Tab宽度为4
 autocmd FileType python,java,ruby,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
 "javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
-autocmd FileType jade,html,ejs,tpl,javascript,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType pug,jade,html,ejs,tpl,javascript,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
@@ -219,7 +219,7 @@ autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,fina
 autocmd FileType c,cpp,java,javascript setlocal foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
-autocmd FileType python,sh,jade,ruby,tpl,ejs setlocal foldmethod=indent
+autocmd FileType python,sh,pug,jade,ruby,tpl,ejs setlocal foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -266,19 +266,19 @@ autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=
 set autochdir
 
 "有代码更新的时候，自动更新tags
-function! UpdateTags()
-    call GoToProjectRoot()
-    let currentDir = expand("%:p:h")
-    if currentDir != $HOME
-        let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
-        " 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-        "let cmd = 'make tags'
-        let resp = system(cmd)
-        "execute cmd
-    endif
-endfunction
+"function! UpdateTags()
+    "call GoToProjectRoot()
+    "let currentDir = expand("%:p:h")
+    "if currentDir != $HOME
+        "let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
+        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
+        ""let cmd = 'make tags'
+        "let resp = system(cmd)
+        ""execute cmd
+    "endif
+"endfunction
 
-autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
+"autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.styl,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
 
 function! RunUnitTest()
