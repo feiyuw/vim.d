@@ -1,5 +1,5 @@
 let g:mapleader=","
-let g:rootmarkers = ['Makefile', 'Rakefile', 'makefile', 'setup.py', 'pom.xml', 'build.xml', '.project', 'BUCK', '.lvimrc', 'README.md', 'package.json']
+let g:rootmarkers = ['.git', '.svn']
 
 " Vundle settings
 filetype off
@@ -279,7 +279,7 @@ set autochdir
 "endfunction
 
 "autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
-autocmd BufWritePre *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js,*.md,*.html,*.jade,*.styl,Makefile,Rakefile,*.tpl,*.ejs,*.json execute ":StripWhitespace"
+autocmd BufWritePre * execute ":StripWhitespace"
 
 function! RunUnitTest()
     call GoToProjectRoot()
