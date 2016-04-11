@@ -10,11 +10,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
     colorscheme solarized
-    if has("gui_running")
-        set guioptions=i
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
-        set guifontwide=DejaVu\ Sans\ Mono\ 14
-    endif
+    set guioptions=i
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
+    set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set t_Co=256
     let g:solarized_termcolors=256
     set background=light
@@ -56,9 +54,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'majutsushi/tagbar'
     map <F4> :TagbarToggle<CR>
 Bundle 'vim-airline/vim-airline'
-    if has("gui_running")
-        let g:airline_powerline_fonts = 1
-    endif
+    let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
     map <C-TAB> :bnext<CR>
     map <C-S-TAB> :bprevious<CR>
