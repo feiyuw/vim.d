@@ -119,6 +119,7 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'fatih/vim-go'
 Bundle 'fcitx.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on
 
