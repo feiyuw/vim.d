@@ -91,7 +91,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_python_checkers = ['pyflakes']
     let g:syntastic_java_checkers = ['findbugs']
-Bundle 'digitaltoad/vim-jade'
+Bundle 'digitaltoad/vim-pug'
 Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
 Bundle 'mfukar/robotframework-vim'
@@ -120,6 +120,7 @@ Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'fatih/vim-go'
 Bundle 'fcitx.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+    let g:tmux_navigator_save_on_switch = 1
 
 filetype plugin indent on
 
@@ -207,7 +208,7 @@ set shiftwidth=4
 "Python/java/ruby设置Tab宽度为4
 autocmd FileType python,java,ruby,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
 "javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
-autocmd FileType pug,jade,html,ejs,tpl,javascript,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
