@@ -1,11 +1,19 @@
-# My VIM configuration
+This repository contains three configuration files:
+
+* vimrc
+* zshrc
+* tmux.conf
+
+---
+
+## VIM
 
 1. It works fine on 64bit Lubuntu with VIM 7.4.
 1. It should be OK for other Linux and VIM 7.+.
 
-## Install & Upgrade
+### Install & Upgrade
 
-### Install
+#### Install
 
 1. Install `vundle`
 
@@ -37,7 +45,7 @@
 1. Open `gvim` again, enjoy!
 
 
-### Upgrade
+#### Upgrade
 
 1. Update vim.d
 
@@ -50,7 +58,7 @@
 1. Open `gvim`, execute `:BundleUpdate`
 
 
-## Plugins
+### Plugins
 
 The plugins I used are:
 
@@ -82,11 +90,13 @@ The plugins I used are:
 * wavded/vim-stylus
 * moll/vim-node
 * jiangmiao/auto-pairs
-* xolox/vim-misc
-* xolox/vim-session
+* ekalinin/Dockerfile.vim
+* fatih/vim-go
+* fcitx.vim
+* christoomey/vim-tmux-navigator
 
 
-## Shortcuts
+### Shortcuts
 
 1. `,e`
 
@@ -196,3 +206,23 @@ The plugins I used are:
 1. [VIM scripts](http://vim-scripts.org)
 1. [ctrlp.vim introduction](http://zuyunfei.com/2013/08/26/vim-plugin-ctrlp/)
 1. [Practical VIM](http://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980/ref=sr_1_1?ie=UTF8&qid=1407823913&sr=8-1&keywords=practical+vim)
+
+# Tmux
+
+## Install
+
+1. Make sure your tmux version is 1.9+, I use tmux 2.0. To install latest tmux version, you may refer to the following steps (tested on linux mint 17.3 which is based on ubuntu 14.04).
+
+```sh
+sudo apt-get install -y python-software-properties software-properties-common
+sudo add-apt-repository -y ppa:pi-rho/dev
+sudo apt-get update
+sudo apt-get install -y tmux=2.0-1~ppa1~t
+```
+1. Install [tpm](https://github.com/tmux-plugins/tpm) which is the package manager of tmux.
+1. In tmux session, execute `Ctrl+B I` to install plugins
+
+## Reference
+
+1. [upgrade tmux from 1.8 to 2.0 on ubuntu 14.04](http://stackoverflow.com/questions/25940944/ugrade-tmux-from-1-8-to-1-9-on-ubuntu-14-04)
+1. [dayid's tmux & screen cheat-sheet](http://www.dayid.org/comp/tm.html)
