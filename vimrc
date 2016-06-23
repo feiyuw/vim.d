@@ -9,13 +9,12 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
-    colorscheme solarized
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
-    set t_Co=256
+    colorscheme solarized
+    set background=dark
     let g:solarized_termcolors=256
-    set background=light
 
     function! BackgroundSwitch()
         if &background == 'light'
