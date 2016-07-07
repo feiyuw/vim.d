@@ -55,6 +55,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 1
+    let g:airline#extensions#tabline#show_tabs = 0
     nmap <TAB> :bnext<CR>
     nmap <S-TAB> :bprevious<CR>
     set noshowmode
@@ -130,7 +132,6 @@ set cursorline
 set cc=120
 syntax on
 set fileencodings=utf-8,gb18030,cp936,big5,utf-16le
-set autoread
 set list
 set listchars=tab:>-,trail:-
 set expandtab

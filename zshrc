@@ -109,3 +109,5 @@ bindkey -e
 
 export ANDROID_HOME=/home/zhang/Android/Sdk
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HOME/app:$PATH
+
+export REACT_EDITOR=atom
