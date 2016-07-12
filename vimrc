@@ -43,6 +43,8 @@ Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 Bundle 'NERD_tree-Project'
     let g:NTPNames = g:rootmarkers
 Bundle 'scrooloose/nerdcommenter'
@@ -125,7 +127,8 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on
 
-set nu
+set number
+set relativenumber
 set ruler
 set cursorline
 "set cursorcolumn
