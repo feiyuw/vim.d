@@ -12,9 +12,10 @@ Bundle 'altercation/vim-colors-solarized'
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
-    colorscheme solarized
-    set background=dark
     let g:solarized_termcolors=256
+    syntax enable
+    set background=dark
+    colorscheme solarized
 
     function! BackgroundSwitch()
         if &background == 'light'
@@ -43,8 +44,6 @@ Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
     map <F12> :ToggleNERDTree<CR>
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 Bundle 'NERD_tree-Project'
     let g:NTPNames = g:rootmarkers
 Bundle 'scrooloose/nerdcommenter'
@@ -133,7 +132,6 @@ set ruler
 set cursorline
 "set cursorcolumn
 set cc=120
-syntax on
 set fileencodings=utf-8,gb18030,cp936,big5,utf-16le
 set list
 set listchars=tab:>-,trail:-
