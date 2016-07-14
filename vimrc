@@ -99,7 +99,6 @@ Bundle 'rking/ag.vim'
 Bundle 'mfukar/robotframework-vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'elzr/vim-json'
-Bundle 'tpope/vim-surround'
 Bundle 'pangloss/vim-javascript'
     let g:javascript_ignore_javaScriptdoc = 1
     let g:javascript_conceal_function   = "ƒ"
