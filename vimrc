@@ -110,6 +110,7 @@ Bundle 'pangloss/vim-javascript'
     let g:javascript_conceal_prototype  = "¶"
     let g:javascript_conceal_static     = "•"
     let g:javascript_conceal_super      = "Ω"
+    let g:javascript_plugin_flow = 1
 Bundle 'mxw/vim-jsx'
     let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 Bundle 'othree/html5.vim'
@@ -126,7 +127,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 filetype plugin indent on
 
 set number
-set relativenumber
 set ruler
 set cursorline
 "set cursorcolumn
