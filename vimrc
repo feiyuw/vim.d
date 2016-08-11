@@ -77,11 +77,6 @@ Bundle 'Valloric/YouCompleteMe'
           \ 'vimwiki' : 1,
           \ 'gitcommit' : 1,
           \}
-Bundle 'godlygeek/tabular'
-    nmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a: :Tabularize /:\zs<CR>
-    vmap <Leader>a: :Tabularize /:\zs<CR>
 Bundle 'scrooloose/syntastic'
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
