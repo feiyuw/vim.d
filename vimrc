@@ -12,7 +12,8 @@ Bundle 'altercation/vim-colors-solarized'
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
-    let g:solarized_termcolors=256
+    let g:solarized_termcolors=16
+    set t_Co=16
     syntax enable
     set background=dark
     colorscheme solarized

@@ -195,6 +195,11 @@ The plugins I used are:
 1. `@a` execute the macro
 1. `@@` execute the last executed macro
 
+### VIM on Terminal
+
+1. I use "gnome-terminal", suggest modify the color schema similar with vim.
+1. See http://stackoverflow.com/a/7734960/3659453
+
 ## Screenshot
 
 ![panel](/img/panel.png "VIM Panel")
