@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras python node docker npm pip vi-mode tmux react-native)
+plugins=(git git-extras python node docker npm pip vi-mode tmux react-native golang)
 
 # User configuration
 
@@ -103,5 +103,9 @@ bindkey -e
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 export ANDROID_HOME=/home/zhang/Android/Sdk
-export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HOME/app:$PATH
+export PATH=/usr/lib/go-1.6/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HOME/app:$PATH
 
+# for IMP
+alias stop-imp="sudo /opt/imp/bin/imp-startup.sh stop"
+alias start-imp="sudo /opt/imp/bin/imp-startup.sh start"
+alias remove-imp="sudo aptitude -y purge nokia-imp && sudo rm -rf /opt/imp"

@@ -89,6 +89,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_python_checkers = ['pyflakes']
     let g:syntastic_java_checkers = ['findbugs']
+    let g:syntastic_html_tidy_ignore_errors = ['trimming empty']
 Bundle 'digitaltoad/vim-pug'
 Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -119,6 +120,7 @@ Bundle 'fatih/vim-go'
 Bundle 'fcitx.vim'
 Bundle 'christoomey/vim-tmux-navigator'
     let g:tmux_navigator_save_on_switch = 1
+Bundle 'suan/vim-instant-markdown'
 
 filetype plugin indent on
 
