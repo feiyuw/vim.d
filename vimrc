@@ -120,7 +120,6 @@ Bundle 'fatih/vim-go'
 Bundle 'fcitx.vim'
 Bundle 'christoomey/vim-tmux-navigator'
     let g:tmux_navigator_save_on_switch = 1
-Bundle 'suan/vim-instant-markdown'
 
 filetype plugin indent on
 
