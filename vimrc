@@ -13,6 +13,7 @@ Bundle 'tomasr/molokai'
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
+    set t_Co=256
     let g:rehash256 = 1
     colorscheme molokai
 Bundle 'ctrlpvim/ctrlp.vim'
