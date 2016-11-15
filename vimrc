@@ -8,24 +8,13 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+    set background=dark
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
-    let g:solarized_termcolors=256
-    set t_Co=256
-    syntax enable
-    set background=dark
-    colorscheme solarized
-
-    function! BackgroundSwitch()
-        if &background == 'light'
-            set background=dark
-        else
-            set background=light
-        endif
-    endfunction
-    map <F7> :call BackgroundSwitch()<CR>
+    let g:rehash256 = 1
+    colorscheme molokai
 Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
