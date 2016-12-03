@@ -14,6 +14,8 @@ Bundle 'lifepillar/vim-solarized8'
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set t_Co=256
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
     let g:rehash256 = 1
     colorscheme solarized8_dark
 Bundle 'ctrlpvim/ctrlp.vim'
