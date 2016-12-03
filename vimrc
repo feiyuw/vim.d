@@ -8,14 +8,14 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'tomasr/molokai'
+Bundle 'lifepillar/vim-solarized8'
     set background=dark
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
     set t_Co=256
     let g:rehash256 = 1
-    colorscheme molokai
+    colorscheme solarized8_dark
 Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
