@@ -79,7 +79,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_python_checkers = ['pyflakes']
     let g:syntastic_java_checkers = ['findbugs']
-    let g:syntastic_html_tidy_ignore_errors = ['trimming empty']
+    let g:syntastic_html_tidy_ignore_errors = ['trimming empty', '<svg> is not recognized!', 'discarding unexpected <svg>', 'discarding unexpected </svg>']
 Bundle 'digitaltoad/vim-pug'
 Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
