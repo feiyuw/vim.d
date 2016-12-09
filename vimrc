@@ -22,7 +22,6 @@ Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_root_markers = g:rootmarkers
     let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
     let g:ctrlp_clear_cache_on_exit = 1
-    "let g:ctrlp_extensions = ['tag']
     let g:ctrlp_custom_ignore = {
         \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
         \ }
