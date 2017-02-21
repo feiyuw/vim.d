@@ -11,8 +11,8 @@ Bundle 'gmarik/vundle'
 Bundle 'tomasr/molokai'
     set background=dark
     set guioptions=i
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
-    set guifontwide=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ Book\ 12
+    set guifontwide=Source\ Code\ Pro\ for\ Powerline\ Book\ 12
     set t_Co=256
     let g:rehash256 = 1
     colorscheme molokai
@@ -78,7 +78,7 @@ Bundle 'scrooloose/syntastic'
     let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_python_checkers = ['pyflakes']
     let g:syntastic_java_checkers = ['findbugs']
-    let g:syntastic_html_tidy_ignore_errors = ['trimming empty', '<svg> is not recognized!', 'discarding unexpected <svg>', 'discarding unexpected </svg>']
+    let g:syntastic_html_tidy_ignore_errors = ['trimming empty', '<svg> is not recognized!', 'discarding unexpected <svg>', 'discarding unexpected </svg>', '<input> proprietary attribute "step"']
 Bundle 'digitaltoad/vim-pug'
 Bundle 'rking/ag.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -109,6 +109,9 @@ Bundle 'fatih/vim-go'
 Bundle 'fcitx.vim'
 Bundle 'christoomey/vim-tmux-navigator'
     let g:tmux_navigator_save_on_switch = 1
+Bundle 'mzlogin/vim-markdown-toc'
+    let g:vmt_auto_update_on_save = 0
+    let g:vmt_dont_insert_fence = 1
 
 filetype plugin indent on
 
