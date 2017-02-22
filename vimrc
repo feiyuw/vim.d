@@ -28,12 +28,12 @@ Bundle 'ctrlpvim/ctrlp.vim'
         \ }
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags
 Bundle 'tacahiroy/ctrlp-funky'
-    nnoremap <Leader>f :CtrlPFunky<Cr>
+    nnoremap <leader>f :CtrlPFunky<Cr>
     let g:ctrlp_funky_matchtype = 'path'
 Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
-    map <C-F12> :ToggleNERDTree<CR>
+    map <leader>t :ToggleNERDTree<CR>
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 Bundle 'NERD_tree-Project'
     let g:NTPNames = g:rootmarkers
@@ -43,7 +43,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled = 1
 Bundle 'majutsushi/tagbar'
-    map <C-F4> :TagbarToggle<CR>
+    map <leader>o :TagbarToggle<CR>
 Bundle 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
@@ -196,7 +196,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 "Python/java/ruby设置Tab宽度为4
-autocmd FileType python,java,ruby,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
 "javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
 autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
@@ -204,7 +204,7 @@ autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
 "读入C, JAVA文件，设置折叠方式为syntax
-autocmd FileType c,cpp,java,javascript setlocal foldmethod=syntax
+autocmd FileType c,cpp,java,javascript,go setlocal foldmethod=syntax
 
 "读入其它文件，设置折叠方式为indent
 autocmd FileType python,sh,pug,jade,ruby,tpl,ejs setlocal foldmethod=indent
@@ -223,9 +223,9 @@ nmap <leader>v "+p
 
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
-map <leader>t :tabnew<CR>
-map <leader>n :tabn<CR>
-map <leader>p :tabp<CR>
+"map <leader>t :tabnew<CR>
+"map <leader>n :tabn<CR>
+"map <leader>p :tabp<CR>
 
 "复制粘贴
 cmap <leader>" <C-r>"
