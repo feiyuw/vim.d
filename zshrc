@@ -109,3 +109,4 @@ export PATH=/usr/lib/go-1.6/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 alias stop-imp="sudo /opt/imp/bin/imp-startup.sh stop"
 alias start-imp="sudo /opt/imp/bin/imp-startup.sh start"
 alias remove-imp="sudo aptitude -y purge nokia-imp && sudo rm -rf /opt/imp"
+alias clear-firewall="sudo iptables -P INPUT ACCEPT; sudo iptables -P OUTPUT ACCEPT; sudo iptables -P FORWARD ACCEPT; sudo iptables -F"
