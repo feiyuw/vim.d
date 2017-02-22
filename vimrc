@@ -3,6 +3,7 @@ let g:rootmarkers = ['.git', '.svn']
 
 " Vundle settings
 filetype off
+syntax on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -32,7 +33,7 @@ Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'scrooloose/nerdtree'
     let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
-    map <F12> :ToggleNERDTree<CR>
+    map <C-F12> :ToggleNERDTree<CR>
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 Bundle 'NERD_tree-Project'
     let g:NTPNames = g:rootmarkers
@@ -42,7 +43,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled = 1
 Bundle 'majutsushi/tagbar'
-    map <F4> :TagbarToggle<CR>
+    map <C-F4> :TagbarToggle<CR>
 Bundle 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
@@ -273,4 +274,4 @@ function! RunUnitTest()
     :make test
 endfunction
 
-map <F5>  :call RunUnitTest()<CR>
+map <C-F5>  :call RunUnitTest()<CR>
