@@ -17,7 +17,7 @@ Bundle 'lifepillar/vim-solarized8'
     set t_8f=[38;2;%lu;%lu;%lum
     set t_8b=[48;2;%lu;%lu;%lum
     let g:rehash256 = 1
-    colorscheme solarized8_dark
+    colorscheme molokai
 Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_switch_buffer = 'Et'
