@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'lifepillar/vim-solarized8'
+Bundle 'tomasr/molokai'
     set background=dark
     set guioptions=i
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Book\ 12
