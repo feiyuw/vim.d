@@ -1,33 +1,31 @@
 This repository contains three configuration files:
 
 * vimrc
+* neovim
 * zshrc
 * tmux.conf
 
 ---
 
-## VIM
+## VIM & Neovim
 
-1. It works fine on 64bit Lubuntu with VIM 7.4.
-1. It should be OK for other Linux and VIM 7.+.
+1. It works fine on Mac OSX with VIM 8.0+ and Neovim 0.1.7.
+1. It should be OK for Linux with same version.
 
 ### Install & Upgrade
 
 #### Install
 
-1. Install `vundle`
-
-        git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
 1. Clone `vim.d`
 
-        git clone https://github.com/feiyuw/vim.d.git ~/Workspace/vim.d
+        git clone https://github.com/feiyuw/vim.d.git ~/workspace/vim.d
 
 1. Create `~/.vimrc`
 
-        ln -s ~/Workspace/vim.d/vimrc ~/.vimrc
+        ln -s ~/workspace/vim.d/vimrc ~/.vimrc  # vim
+        ln -s ~/workspace/vim.d/nvim ~/.config  # neovim
 
-1. Open `gvim`, execute `:BundleInstall`
+1. Open `vim`, execute `:PlugInstall`
 1. Patch `power-line` font
 
     ```sh
@@ -40,9 +38,9 @@ This repository contains three configuration files:
 
     ```sh
     cd ~/.vim/bundle/YouCompleteMe
-    ./install.sh
+    ./install.py
     ```
-1. Open `gvim` again, enjoy!
+1. Open `vim` again, enjoy!
 
 
 #### Upgrade
@@ -50,20 +48,19 @@ This repository contains three configuration files:
 1. Update vim.d
 
 ```bash
-    cd ~/Workspace/vim.d
+    cd ~/workspace/vim.d
     git pull
 ```
 
-1. Open `gvim`, execute `:BundleClean`
-1. Open `gvim`, execute `:BundleUpdate`
+1. Open `vim`, execute `:PlugClean`
+1. Open `vim`, execute `:PlugUpdate`
 
 
 ### Plugins
 
 The plugins I used are:
 
-* gmarik/vundle
-* altercation/vim-colors-solarized
+* tomasr/molokai
 * ctrlpvim/ctrlp.vim
 * tacahiroy/ctrlp-funky
 * FelikZ/ctrlp-py-matcher
@@ -72,17 +69,16 @@ The plugins I used are:
 * scrooloose/nerdcommenter
 * plasticboy/vim-markdown
 * majutsushi/tagbar
-* bling/vim-airline
+* vim-airline/vim-airline
+* vim-airline/vim-airline-themes
 * tpope/vim-fugitive
 * Valloric/YouCompleteMe
-* godlygeek/tabular
 * scrooloose/syntastic
-* digitaltoad/vim-jade
+* digitaltoad/vim-pug
 * rking/ag.vim
 * mfukar/robotframework-vim
 * ntpeters/vim-better-whitespace
 * elzr/vim-json
-* tpope/vim-surround
 * pangloss/vim-javascript
 * mxw/vim-jsx
 * othree/html5.vim
@@ -92,9 +88,8 @@ The plugins I used are:
 * jiangmiao/auto-pairs
 * ekalinin/Dockerfile.vim
 * fatih/vim-go
-* fcitx.vim
 * christoomey/vim-tmux-navigator
-
+* mzlogin/vim-markdown-toc
 
 ### Shortcuts
 

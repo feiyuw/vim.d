@@ -4,11 +4,11 @@ let g:rootmarkers = ['.git', '.svn']
 syntax on
 
 " auto-install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'tomasr/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -197,7 +197,7 @@ set formatoptions=tcrqn
 set smarttab
 
 "在normal模式下使用系统剪贴板
-"set clipboard+=unnamed
+set clipboard+=unnamed
 
 "Show matching bracets
 set showmatch
@@ -210,7 +210,6 @@ set mouse=a
 
 "Set to auto read when a file is changed from the outside
 set autoread
-
 
 "设置折叠
 set foldenable
