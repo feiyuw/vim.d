@@ -3,6 +3,7 @@ let g:rootmarkers = ['.git', '.svn']
 
 " Vundle settings
 filetype off
+syntax on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
