@@ -39,6 +39,8 @@ This repository contains three configuration files:
     ```sh
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py
+
+    pip install neovim # for neovim support
     ```
 1. Open `vim` again, enjoy!
 
