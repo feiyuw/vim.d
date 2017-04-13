@@ -26,7 +26,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 Plug 'digitaltoad/vim-pug'
 Plug 'rking/ag.vim'
-Plug 'mfukar/robotframework-vim', { 'for': 'robot' }
+Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
