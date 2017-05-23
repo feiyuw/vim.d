@@ -15,7 +15,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'scrooloose/nerdtree'
-Plug 'NERD_tree-Project'
+Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'majutsushi/tagbar'
@@ -72,8 +72,8 @@ let g:javascript_plugin_flow = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']

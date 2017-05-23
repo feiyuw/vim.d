@@ -15,7 +15,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'scrooloose/nerdtree'
-Plug 'NERD_tree-Project'
+Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'majutsushi/tagbar'
