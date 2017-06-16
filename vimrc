@@ -193,6 +193,9 @@ noremap <C-Right> <C-W>l
 "自动格式化
 set formatoptions=tcrqn
 
+" auto resize windows
+autocmd VimResized * wincmd =
+
 "在行和段开始处使用制表符
 set smarttab
 
@@ -220,6 +223,10 @@ set foldlevel=4
 "打开目录时不显示隐藏目录和文件，以及.pyc文件。
 let g:netrw_hide= 1
 let g:netrw_list_hide= '(^\..*|.*\.pyc|.*\.class)'
+
+" wildmenu
+set wildmenu
+set wildmode=full
 
 "AutoCommand
 "新建文件后，自动定位到文件末尾
