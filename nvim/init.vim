@@ -24,8 +24,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
-Plug 'digitaltoad/vim-pug'
-Plug 'rking/ag.vim'
 Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -74,6 +72,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
