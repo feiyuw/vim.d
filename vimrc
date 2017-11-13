@@ -24,8 +24,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
-Plug 'digitaltoad/vim-pug'
-Plug 'rking/ag.vim'
 Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -290,8 +288,8 @@ function! GoToProjectRoot()
 endfunction
 
 "tag设置
-autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
-set autochdir
+"autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
+"set autochdir
 
 "有代码更新的时候，自动更新tags
 "function! UpdateTags()
