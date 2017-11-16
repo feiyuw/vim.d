@@ -110,9 +110,6 @@ let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
 map <F12> :ToggleNERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" nerdtree project
-let g:NTPNames = g:rootmarkers
-
 " nerd commenter
 let NERDShutUp=1
 map <leader>m <leader>c<space>
@@ -253,12 +250,6 @@ nmap <leader>c "+y
 vmap <leader>v <ESC>"+p
 nmap <leader>v "+p
 
-"设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
-"<leader>p
-"map <leader>t :tabnew<CR>
-"map <leader>n :tabn<CR>
-"map <leader>p :tabp<CR>
-
 "复制粘贴
 cmap <leader>" <C-r>"
 cmap <leader>+ <C-r>+
@@ -267,43 +258,18 @@ cmap <leader>+ <C-r>+
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
-function! GoToProjectRoot()
-    if !exists("g:NTPNames")
-      let g:NTPNames = g:rootmarkers
-    endif
-    for filename in g:NTPNames
-        let file = findfile(filename, expand("%:p:h") . ';')
-        if filereadable(file)
-            let ProjectRoot = fnamemodify(file, ':p:h')
-            exe "cd " . ProjectRoot
-            break
-        endif
-    endfor
-endfunction
-
 "tag设置
 autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
 set autochdir
 
-"有代码更新的时候，自动更新tags
-"function! UpdateTags()
-    "call GoToProjectRoot()
-    "let currentDir = expand("%:p:h")
-    "if currentDir != $HOME
-        "let cmd = 'ctags -R --exclude=node_modules --exclude=.git -f .tags . &'
-        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-        ""let cmd = 'make tags'
-        "let resp = system(cmd)
-        ""execute cmd
-    "endif
-"endfunction
-
 "autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 autocmd BufWritePre * execute ":StripWhitespace"
 
-function! RunUnitTest()
-    call GoToProjectRoot()
-    :make test
+"for golang
+function! SetGoPath()
+    let srcDir = finddir('src', expand("%:p:h") . ';')
+    if isdirectory(srcDir)
+        let $GOPATH = fnamemodify(srcDir, ':h')
+    endif
 endfunction
-
-map <C-F5>  :call RunUnitTest()<CR>
+autocmd FileType go call SetGoPath()
