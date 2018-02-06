@@ -70,16 +70,22 @@ let g:javascript_plugin_flow = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_java_checkers = ['findbugs']
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty', '<svg> is not recognized!', 'discarding unexpected <svg>', 'discarding unexpected </svg>', '<input> proprietary attribute "step"']
+
+" vim-go
+let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
+let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " molokai
 set background=dark
@@ -142,6 +148,7 @@ let g:ycm_filetype_blacklist = {
       \ 'text' : 1,
       \ 'vimwiki' : 1,
       \ 'gitcommit' : 1,
+      \ 'json' : 1,
       \}
 
 filetype plugin indent on
