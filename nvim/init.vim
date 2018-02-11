@@ -18,6 +18,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 
@@ -63,6 +64,8 @@ function! s:check_back_space() abort "{{{
 endfunction"}}}
 set completeopt+=noinsert
 set completeopt-=preview
+let g:jedi#completions_enabled = 0 " no jedi completion
+nmap <C-]> <leader>d
 
 " tmux
 let g:tmux_navigator_save_on_switch = 1
