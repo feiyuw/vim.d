@@ -8,7 +8,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
+
 call plug#begin('~/.config/nvim/plugged')
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 
 Plug 'tomasr/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -22,7 +33,6 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
 Plug 'ntpeters/vim-better-whitespace'
@@ -39,6 +49,20 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 call plug#end()
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+set completeopt+=noinsert
+set completeopt-=preview
 
 " tmux
 let g:tmux_navigator_save_on_switch = 1
@@ -135,21 +159,6 @@ nmap <TAB> :bnext<CR>
 nmap <S-TAB> :bprevious<CR>
 set noshowmode
 set laststatus=2
-
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-nmap <C-]> :YcmCompleter GoTo<CR>
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'gitcommit' : 1,
-      \ 'json' : 1,
-      \}
 
 filetype plugin indent on
 
@@ -269,9 +278,7 @@ nmap <C-s> :w<CR>
 autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
 set autochdir
 
-"autocmd BufWritePost *.cpp,*.h,*.c,*.py,*.java,*.rb,*.js call UpdateTags()
 autocmd BufWritePre * execute ":StripWhitespace"
-
 "for golang
 function! SetGoPath()
     let srcDir = finddir('src', expand("%:p:h") . ';')
