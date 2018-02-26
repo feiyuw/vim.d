@@ -285,7 +285,7 @@ autocmd BufWritePre * execute ":StripWhitespace"
 "for golang
 function! SetGoPath()
     let srcDir = finddir('src', expand("%:p:h") . ';')
-    if isdirectory(srcDir) && srcDir =~ $HOME . '/\~'
+    if isdirectory(srcDir) && empty($GOPATH)
         let $GOPATH = fnamemodify(srcDir, ':h')
     endif
 endfunction
