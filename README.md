@@ -37,7 +37,7 @@ This repository contains three configuration files:
 1. Install `YouCompleteMe`
 
     ```sh
-    cd ~/.vim/bundle/YouCompleteMe
+    cd ~/.vim/plugged/YouCompleteMe
     ./install.py
 
     pip install neovim # for neovim support
