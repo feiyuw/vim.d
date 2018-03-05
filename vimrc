@@ -107,7 +107,7 @@ let g:ctrlp_funky_matchtype = 'path'
 
 " nerdtree
 let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
-map <F12> :ToggleNERDTree<CR>
+map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerdtree project
@@ -146,6 +146,10 @@ let g:ycm_filetype_blacklist = {
       \ 'vimwiki' : 1,
       \ 'gitcommit' : 1,
       \}
+
+" strip-whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 filetype plugin indent on
 
@@ -269,12 +273,10 @@ cmap <leader>+ <C-r>+
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
-autocmd BufWritePre * execute ":StripWhitespace"
-
 "for golang
 function! SetGoPath()
     let srcDir = finddir('src', expand("%:p:h") . ';')
-    if isdirectory(srcDir)
+    if isdirectory(srcDir) && empty($GOPATH)
         let $GOPATH = fnamemodify(srcDir, ':h')
     endif
 endfunction

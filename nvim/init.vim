@@ -51,6 +51,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 call plug#end()
 
+" gitgutter
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
@@ -140,7 +147,7 @@ let g:ctrlp_funky_matchtype = 'path'
 
 " nerdtree
 let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
-map <F12> :ToggleNERDTree<CR>
+map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerd commenter
@@ -163,6 +170,10 @@ nmap <S-TAB> :bprevious<CR>
 set noshowmode
 set laststatus=2
 
+" strip-whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
 filetype plugin indent on
 
 set number
@@ -184,7 +195,6 @@ set linebreak
 set ignorecase
 set smartcase
 
-nmap <SPACE> @=((foldclosed(line('.')) < 0)?'zc':'zO')<CR>
 if has("unix")
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
     map <leader>vs :vsplit <C-R>=expand("%:p:h") . "/" <CR>
@@ -227,11 +237,6 @@ set mouse=a
 "Set to auto read when a file is changed from the outside
 set autoread
 
-"设置折叠
-set foldenable
-set foldcolumn=2
-set foldlevel=4
-
 "打开目录时不显示隐藏目录和文件，以及.pyc文件。
 let g:netrw_hide= 1
 let g:netrw_list_hide= '(^\..*|.*\.pyc|.*\.class)'
@@ -250,12 +255,6 @@ autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
-
-"读入C, JAVA文件，设置折叠方式为syntax
-autocmd FileType c,cpp,java,javascript,go setlocal foldmethod=syntax
-
-"读入其它文件，设置折叠方式为indent
-autocmd FileType python,sh,pug,jade,ruby,tpl,ejs setlocal foldmethod=indent
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -281,7 +280,6 @@ nmap <C-s> :w<CR>
 autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
 set autochdir
 
-autocmd BufWritePre * execute ":StripWhitespace"
 "for golang
 function! SetGoPath()
     let srcDir = finddir('src', expand("%:p:h") . ';')
