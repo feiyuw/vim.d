@@ -1,5 +1,4 @@
 let g:mapleader=","
-let g:rootmarkers = ['.git', '.svn']
 
 syntax on
 
@@ -106,7 +105,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -132,8 +131,8 @@ colorscheme molokai
 
 " ctrlp
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_root_markers = g:rootmarkers
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_custom_ignore = {
