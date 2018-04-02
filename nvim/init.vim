@@ -9,18 +9,8 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 
+Plug 'Valloric/YouCompleteMe'
 Plug 'tomasr/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
@@ -50,28 +40,27 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 call plug#end()
 
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+nmap <C-]> :YcmCompleter GoTo<CR>
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'gitcommit' : 1,
+      \ 'json' : 1,
+      \}
+
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
   set signcolumn=yes
 else
   let g:gitgutter_sign_column_always = 1
 endif
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-set completeopt+=noinsert
-set completeopt-=preview
-let g:jedi#completions_enabled = 0 " no jedi completion
-nmap <C-]> <leader>d
 
 " tmux
 let g:tmux_navigator_save_on_switch = 1
@@ -81,7 +70,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " markdown toc
 let g:vmt_auto_update_on_save = 0
-let g:vmt_dont_insert_fence = 1
+let g:vmt_dont_insert_fence = 0
 
 " jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
