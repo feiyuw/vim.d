@@ -42,6 +42,7 @@ call plug#end()
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_collect_identifiers_from_tags_files = 1
 nmap <C-]> :YcmCompleter GoTo<CR>
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
@@ -264,9 +265,37 @@ cmap <leader>+ <C-r>+
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
-"tag设置
-autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
-set autochdir
+""tag设置
+"autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
+"set autochdir
+
+""有代码更新的时候，自动更新tags
+"let g:rootmarkers = ['.git', '.svn']
+
+"function! GoToProjectRoot()
+    "for dirname in g:rootmarkers
+        "let dirpath = finddir(dirname, expand("%:p:h") . ';')
+        "if isdirectory(dirpath)
+            "let ProjectRoot = fnamemodify(dirpath, ':h')
+            "exe "cd " . ProjectRoot
+            "break
+        "endif
+    "endfor
+"endfunction
+
+"function! UpdateTags()
+    "call GoToProjectRoot()
+    "let currentDir = expand("%:p:h")
+    "if currentDir != $HOME
+        "let cmd = 'ctags -R --exclude=node_modules --fields=+l --exclude=.git -f .tags . &'
+        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
+        ""let cmd = 'make tags'
+        "let resp = system(cmd)
+        ""execute cmd
+    "endif
+"endfunction
+
+"autocmd BufWritePost *.go,*.py,*.js call UpdateTags()
 
 "for golang
 function! SetGoPath()
