@@ -44,17 +44,11 @@ call plug#end()
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_collect_identifiers_from_tags_files = 1
 nmap <C-]> :YcmCompleter GoTo<CR>
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'gitcommit' : 1,
-      \ 'json' : 1,
-      \}
+let g:ycm_filetype_whitelist = {
+    \ 'javascript': 1,
+    \ 'python': 1,
+    \ 'go': 1
+\}
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
