@@ -2,3 +2,4 @@
 plug.vim
 .netrwhist
 plugged/
+autoload/
