@@ -38,6 +38,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'wsdjeg/FlyGrep.vim'
 call plug#end()
 
 " YouCompleteMe
@@ -156,6 +157,9 @@ set laststatus=2
 " strip-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+
+" FlyGrep
+nnoremap <leader>/ :FlyGrep<cr>
 
 filetype plugin indent on
 
