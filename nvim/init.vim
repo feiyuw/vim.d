@@ -123,6 +123,7 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
     \ }
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags
 
 " ctrlp funcky
@@ -217,6 +218,9 @@ set showmatch
 
 "Get out of VI's compatible mode
 set nocompatible
+
+"Enable magic mode
+set magic
 
 "Have the mouse enabled all the time
 set mouse=a
