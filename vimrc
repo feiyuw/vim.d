@@ -36,7 +36,6 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'wsdjeg/FlyGrep.vim'
 call plug#end()
 
 " YouCompleteMe
@@ -120,7 +119,7 @@ let g:Lf_WildIgnore = {
         \ 'dir': ['.git', '.svn', 'node_modules'],
         \ 'file': ['*.pyc', '*.class', '*.swp']
         \}
-map <c-p> :Leaderf file<CR>
+map <leader>o :Leaderf function<CR>
 
 " nerdtree
 let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
@@ -150,9 +149,6 @@ set laststatus=2
 " strip-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
-" FlyGrep
-nnoremap <leader>/ :FlyGrep<cr>
 
 filetype plugin indent on
 
