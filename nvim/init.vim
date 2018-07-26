@@ -154,7 +154,6 @@ set cc=120
 set fileencodings=utf-8,gb18030,cp936,big5,utf-16le
 set list
 set listchars=tab:>-,trail:-
-set expandtab
 set hlsearch
 set incsearch
 set autoindent
@@ -221,10 +220,11 @@ autocmd BufNewFile * normal G
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 "Python/java/ruby设置Tab宽度为4
-autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
-autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
