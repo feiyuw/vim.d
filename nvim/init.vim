@@ -23,7 +23,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -84,26 +84,8 @@ let g:javascript_conceal_static     = "•"
 let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_html_tidy_ignore_errors = ['trimming empty', '<svg> is not recognized!', 'discarding unexpected <svg>', 'discarding unexpected </svg>', '<input> proprietary attribute "step"']
-
-" vim-go
-let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
-let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" ale
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['pyflakes']}
 
 " molokai
 set background=dark
