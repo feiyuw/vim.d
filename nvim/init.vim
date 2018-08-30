@@ -14,7 +14,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'tomasr/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'nixprime/cpsm'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
@@ -24,21 +24,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
-Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
+Plug 'feiyuw/robotframework-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'airblade/vim-gitgutter'
-Plug 'wavded/vim-stylus'
-Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'wsdjeg/FlyGrep.vim'
 call plug#end()
 
 " YouCompleteMe
@@ -50,6 +46,19 @@ let g:ycm_filetype_whitelist = {
     \ 'python': 1,
     \ 'go': 1
 \}
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1,
+      \ 'robot' : 1
+      \}
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -85,7 +94,7 @@ let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['pyflakes']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
 
 " molokai
 set background=dark
@@ -97,6 +106,7 @@ let g:rehash256 = 1
 colorscheme molokai
 
 " ctrlp
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'Et'
@@ -106,7 +116,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
     \ }
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags,__pycache__,*.pyc,*.class
 
 " ctrlp funcky
 nnoremap <leader>f :CtrlPFunky<Cr>
@@ -140,9 +150,6 @@ set laststatus=2
 " strip-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
-" FlyGrep
-nnoremap <leader>/ :FlyGrep<cr>
 
 filetype plugin indent on
 
@@ -211,7 +218,7 @@ set autoread
 
 "打开目录时不显示隐藏目录和文件，以及.pyc文件。
 let g:netrw_hide= 1
-let g:netrw_list_hide= '(^\..*|.*\.pyc|.*\.class)'
+let g:netrw_list_hide= '^\..*,.*\.pyc,.*\.class,__pycache__/,\.egg-info/'
 
 "AutoCommand
 "新建文件后，自动定位到文件末尾
@@ -249,41 +256,9 @@ cmap <leader>+ <C-r>+
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
-""tag设置
-"autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
-"set autochdir
-
-""有代码更新的时候，自动更新tags
-"let g:rootmarkers = ['.git', '.svn']
-
-"function! GoToProjectRoot()
-    "for dirname in g:rootmarkers
-        "let dirpath = finddir(dirname, expand("%:p:h") . ';')
-        "if isdirectory(dirpath)
-            "let ProjectRoot = fnamemodify(dirpath, ':h')
-            "exe "cd " . ProjectRoot
-            "break
-        "endif
-    "endfor
-"endfunction
-
-"function! UpdateTags()
-    "call GoToProjectRoot()
-    "let currentDir = expand("%:p:h")
-    "if currentDir != $HOME
-        "let cmd = 'ctags -R --exclude=node_modules --fields=+l --exclude=.git -f .tags . &'
-        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-        ""let cmd = 'make tags'
-        "let resp = system(cmd)
-        ""execute cmd
-    "endif
-"endfunction
-
-"autocmd BufWritePost *.go,*.py,*.js call UpdateTags()
-
 "for golang
 function! SetGoPath()
-    let srcDir = finddir('src', expand("%:p:h") . ';')
+    let srcDir = fnamemodify(finddir('src', expand("%:p:h") . ';'), ':p:h')
     if isdirectory(srcDir) && empty($GOPATH)
         let $GOPATH = fnamemodify(srcDir, ':h')
     endif
