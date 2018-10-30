@@ -37,6 +37,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
+"vim-go
+let g:go_version_warning = 0
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_collect_identifiers_from_tags_files = 1

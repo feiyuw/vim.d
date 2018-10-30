@@ -25,8 +25,8 @@ This repository contains three configuration files:
         ln -s ~/workspace/vim.d/vimrc ~/.vimrc  # vim
         ln -s ~/workspace/vim.d/nvim ~/.config  # neovim
 
-1. Open `vim`, execute `:PlugInstall`
-1. Patch `power-line` font
+1. Open `nvim`, execute `:PlugInstall`
+1. Patch `powerline` font
 
     ```sh
     mkdir ~/.fonts
@@ -34,15 +34,22 @@ This repository contains three configuration files:
     cd ~/.fonts/powerline-fonts
     ./install.sh
     ```
+1. Install `cpsm`
+
+    ```sh
+    sudo apt install libboost-all-dev python-dev
+    cd ~/.config/nvim/plugged/cpsm
+    ./install.sh
+    ```
 1. Install `YouCompleteMe`
 
     ```sh
-    cd ~/.vim/plugged/YouCompleteMe
-    ./install.py
+    cd ~/.config/nvim/plugged/YouCompleteMe
+    ./install.py --go-completer
 
     pip install neovim # for neovim support
     ```
-1. Open `vim` again, enjoy!
+1. Open `nvim` again, enjoy!
 
 
 #### Upgrade
@@ -54,8 +61,8 @@ This repository contains three configuration files:
     git pull
 ```
 
-1. Open `vim`, execute `:PlugClean`
-1. Open `vim`, execute `:PlugUpdate`
+1. Open `nvim`, execute `:PlugClean`
+1. Open `nvim`, execute `:PlugUpdate`
 
 
 ### Plugins
@@ -63,11 +70,11 @@ This repository contains three configuration files:
 The plugins I used are:
 
 * tomasr/molokai
+* nixprime/cpsm
 * ctrlpvim/ctrlp.vim
 * tacahiroy/ctrlp-funky
-* FelikZ/ctrlp-py-matcher
 * scrooloose/nerdtree
-* NERD_tree-Project
+* vim-scripts/NERD_tree-Project
 * scrooloose/nerdcommenter
 * plasticboy/vim-markdown
 * majutsushi/tagbar
@@ -75,9 +82,7 @@ The plugins I used are:
 * vim-airline/vim-airline-themes
 * tpope/vim-fugitive
 * Valloric/YouCompleteMe
-* scrooloose/syntastic
-* digitaltoad/vim-pug
-* rking/ag.vim
+* w0rp/ale
 * mfukar/robotframework-vim
 * ntpeters/vim-better-whitespace
 * elzr/vim-json
@@ -91,7 +96,6 @@ The plugins I used are:
 * ekalinin/Dockerfile.vim
 * fatih/vim-go
 * christoomey/vim-tmux-navigator
-* mzlogin/vim-markdown-toc
 
 ### Shortcuts
 
@@ -209,20 +213,12 @@ The plugins I used are:
 1. [ctrlp.vim introduction](http://zuyunfei.com/2013/08/26/vim-plugin-ctrlp/)
 1. [Practical VIM](http://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980/ref=sr_1_1?ie=UTF8&qid=1407823913&sr=8-1&keywords=practical+vim)
 
-# Tmux
+## Tmux
 
-## Install
-
-1. Make sure your tmux version is 1.9+, I use tmux 2.0. To install latest tmux version, you may refer to the following steps (tested on linux mint 17.3 which is based on ubuntu 14.04).
-
-```sh
-sudo apt-get install -y python-software-properties software-properties-common
-sudo add-apt-repository -y ppa:pi-rho/dev
-sudo apt-get update
-sudo apt-get install -y tmux=2.0-1~ppa1~t
 ```
-1. Install [tpm](https://github.com/tmux-plugins/tpm) which is the package manager of tmux.
-1. In tmux session, execute `Ctrl+B I` to install plugins
+ln -s ~/workspace/vim.d/tmux.conf ~/.tmux.conf
+# enjoy
+```
 
 ## Reference
 
