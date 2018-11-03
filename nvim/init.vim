@@ -46,7 +46,8 @@ nmap <C-]> :YcmCompleter GoTo<CR>
 let g:ycm_filetype_whitelist = {
     \ 'javascript': 1,
     \ 'python': 1,
-    \ 'go': 1
+    \ 'go': 1,
+    \ 'rust': 1
 \}
 let g:ycm_filetype_blacklist = { '*': 1 }
 
