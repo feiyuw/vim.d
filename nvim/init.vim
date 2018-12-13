@@ -35,11 +35,16 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
+"rust.vim
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'pbcopy'
 "vim-go
 let g:go_version_warning = 0
 " YouCompleteMe
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_collect_identifiers_from_tags_files = 1
 nmap <C-]> :YcmCompleter GoTo<CR>
@@ -85,7 +90,7 @@ let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['rustc']}
 
 " molokai
 set background=dark
