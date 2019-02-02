@@ -39,6 +39,7 @@ Plug 'rust-lang/rust.vim'
 call plug#end()
 
 "rust.vim
+let g:ale_rust_rustc_options = ''
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 "vim-go
@@ -91,6 +92,15 @@ let g:javascript_plugin_flow = 1
 
 " ale
 let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['rustc']}
+let g:ale_maximum_file_size = 524288  " 512KB
+let g:ale_completion_enabled = 0
+let g:ale_lint_delay = 500
+"let g:ale_lint_on_text_changed = "normal"
+let b:ale_warn_about_trailing_whitespace = 0
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
 
 " molokai
 set background=dark
