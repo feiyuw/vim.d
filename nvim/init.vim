@@ -10,7 +10,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'tomasr/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
@@ -36,7 +35,37 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
+Plug 'ncm2/ncm2-go', { 'for': 'go' }
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 call plug#end()
+
+"ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+set shortmess+=c
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"jedi-vim
+let g:jedi#goto_command = "<C-]>"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#completions_enabled = 0
 
 "rust.vim
 let g:ale_rust_rustc_options = ''
@@ -44,18 +73,6 @@ let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 "vim-go
 let g:go_version_warning = 0
-" YouCompleteMe
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_collect_identifiers_from_tags_files = 1
-nmap <C-]> :YcmCompleter GoTo<CR>
-let g:ycm_filetype_whitelist = {
-    \ 'javascript': 1,
-    \ 'python': 1,
-    \ 'go': 1,
-    \ 'rust': 1
-\}
-let g:ycm_filetype_blacklist = { '*': 1 }
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -69,10 +86,6 @@ let g:tmux_navigator_save_on_switch = 1
 
 " ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" markdown toc
-let g:vmt_auto_update_on_save = 0
-let g:vmt_dont_insert_fence = 0
 
 " jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -91,7 +104,7 @@ let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['rustc']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['rustc'], 'go': ['gometalinter']}
 let g:ale_maximum_file_size = 524288  " 512KB
 let g:ale_completion_enabled = 0
 let g:ale_lint_delay = 500
