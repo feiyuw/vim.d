@@ -59,9 +59,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "jedi-vim
-let g:jedi#goto_command = "<C-]>"
+let g:jedi#goto_command = ""
 let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
+let g:jedi#goto_definitions_command = "<C-]>"
 let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
@@ -237,7 +237,7 @@ set autoread
 
 "打开目录时不显示隐藏目录和文件，以及.pyc文件。
 let g:netrw_hide= 1
-let g:netrw_list_hide= '^\..*,.*\.pyc,.*\.class,__pycache__/,\.egg-info/'
+let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
 
 "AutoCommand
 "新建文件后，自动定位到文件末尾
@@ -248,12 +248,14 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 "Python/java/ruby设置Tab宽度为4
-autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
 "javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
-autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
