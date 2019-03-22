@@ -104,10 +104,10 @@ let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['rustc'], 'go': ['gometalinter']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['gometalinter']}
 let g:ale_maximum_file_size = 524288  " 512KB
 let g:ale_completion_enabled = 0
-let g:ale_lint_delay = 500
+let g:ale_lint_delay = 250
 "let g:ale_lint_on_text_changed = "normal"
 let b:ale_warn_about_trailing_whitespace = 0
 let g:ale_pattern_options = {
@@ -145,6 +145,9 @@ let g:ctrlp_funky_matchtype = 'path'
 let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
 map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" persistent undo
+set undofile
 
 " nerd commenter
 let NERDShutUp=1
@@ -285,4 +288,3 @@ function! SetGoPath()
     endif
 endfunction
 autocmd FileType go call SetGoPath()
-
