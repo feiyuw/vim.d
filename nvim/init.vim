@@ -42,7 +42,9 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
 Plug 'ncm2/ncm2-go', { 'for': 'go' }
 Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 "ncm2
@@ -172,6 +174,7 @@ set laststatus=2
 " strip-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 filetype plugin indent on
 
@@ -217,9 +220,6 @@ noremap <C-Right> <C-W>l
 "自动格式化
 set formatoptions=tcrqn
 
-"在行和段开始处使用制表符
-set smarttab
-
 "在normal模式下使用系统剪贴板
 set clipboard+=unnamed
 
@@ -245,15 +245,6 @@ let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
 "AutoCommand
 "新建文件后，自动定位到文件末尾
 autocmd BufNewFile * normal G
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-"Python/java/ruby设置Tab宽度为4
-autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
-"javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
-autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
