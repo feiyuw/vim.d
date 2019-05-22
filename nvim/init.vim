@@ -74,7 +74,7 @@ let g:ale_rust_rustc_options = ''
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 "vim-go
-let g:go_version_warning = 0
+let g:go_version_warning = 1
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -192,6 +192,7 @@ set autoindent
 set smartindent
 set hidden
 set linebreak
+set tabstop=4
 
 set ignorecase
 set smartcase
