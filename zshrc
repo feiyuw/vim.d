@@ -5,7 +5,7 @@ export ZSH=/home/zhang/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,30 +82,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias to113="ssh root@10.69.64.113"
-alias to124="ssh ute@10.69.69.124"
-alias tohztdltev01="ssh root@hztdltev01"
-alias togitlab="ssh root@becrtt01.china.nsn-net.net"
-alias tobeclov02="ssh root@10.135.236.174"
-alias clojure="java -jar /home/zhang/app/clojure-1.7.0/clojure-1.7.0.jar"
-alias to31="ssh csrd@10.56.219.31"
-alias to32="ssh csrd@10.56.219.32"
-alias to33="ssh csrd@10.56.219.33"
-alias to34="ssh csrd@10.56.219.34"
-alias to35="ssh root@10.68.160.35"
-alias to36="ssh root@10.68.160.36"
-alias to234="ssh root@10.68.165.234"
-alias to181="ssh zhang@10.140.23.181"
-alias toaliyun="ssh 114.55.88.203 -l root -p 443"
+alias vim='nvim'
 
-bindkey -e
-# for tmux 256 color
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export ANDROID_HOME=/home/zhang/Android/Sdk
-export PATH=/usr/lib/go-1.6/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HOME/app:$PATH
+function download-youtube() {
+    while True
+    do
+        youtube-dl $1
+        if [ $? -eq 0 ]; then
+            return
+        fi
+    done
+}
 
-# for IMP
-alias stop-imp="sudo /opt/imp/bin/imp-startup.sh stop"
-alias start-imp="sudo /opt/imp/bin/imp-startup.sh start"
-alias remove-imp="sudo aptitude -y purge nokia-imp && sudo rm -rf /opt/imp"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,pkg,node_modules,vendor,bin,build} -H --type f"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
