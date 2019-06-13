@@ -10,9 +10,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'tomasr/molokai'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
@@ -21,34 +19,66 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
-Plug 'feiyuw/robotframework-vim', { 'for': 'robot' }
+Plug 'w0rp/ale'
+Plug 'feiyuw/robotframework-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'airblade/vim-gitgutter'
-Plug 'wavded/vim-stylus'
-Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'rust-lang/rust.vim'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
+Plug 'ncm2/ncm2-go', { 'for': 'go' }
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tpope/vim-sleuth'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-nmap <C-]> :YcmCompleter GoTo<CR>
-let g:ycm_filetype_whitelist = {
-    \ 'javascript': 1,
-    \ 'python': 1,
-    \ 'go': 1
-\}
+"fzf
+nmap <C-p> :Files<CR>
+nmap <C-e> :Buffers<CR>
+nmap <C-g> :Rg<CR>
+
+"ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+set shortmess+=c
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"jedi-vim
+let g:jedi#goto_command = ""
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<C-]>"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#completions_enabled = 0
+
+"rust.vim
+let g:ale_rust_rustc_options = ''
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'pbcopy'
+"vim-go
+let g:go_version_warning = 1
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -59,13 +89,6 @@ endif
 
 " tmux
 let g:tmux_navigator_save_on_switch = 1
-
-" ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" markdown toc
-let g:vmt_auto_update_on_save = 0
-let g:vmt_dont_insert_fence = 0
 
 " jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -83,28 +106,17 @@ let g:javascript_conceal_static     = "•"
 let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {'passive_filetypes': ['java']}
-let g:syntastic_java_javac_autoload_maven_classpath = 0
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_html_tidy_ignore_errors = ['trimming empty', '<svg> is not recognized!', 'discarding unexpected <svg>', 'discarding unexpected </svg>', '<input> proprietary attribute "step"']
-
-" vim-go
-let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
-let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" ale
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['gometalinter']}
+let g:ale_maximum_file_size = 524288  " 512KB
+let g:ale_completion_enabled = 0
+let g:ale_lint_delay = 250
+"let g:ale_lint_on_text_changed = "normal"
+let b:ale_warn_about_trailing_whitespace = 0
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
 
 " molokai
 set background=dark
@@ -115,18 +127,15 @@ set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
 
-" leaderF
-let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_WildIgnore = {
-        \ 'dir': ['.git', '.svn', 'node_modules'],
-        \ 'file': ['*.pyc', '*.class', '*.swp']
-        \}
-map <leader>o :Leaderf function<CR>
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags,__pycache__,*.pyc,*.class
 
 " nerdtree
 let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
 map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" persistent undo
+set undofile
 
 " nerd commenter
 let NERDShutUp=1
@@ -151,6 +160,7 @@ set laststatus=2
 " strip-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 filetype plugin indent on
 
@@ -160,17 +170,17 @@ set cursorline
 "set cursorcolumn
 set cc=120
 set fileencodings=utf-8,gb18030,cp936,big5,utf-16le
-set termencoding=utf-8
-set encoding=utf-8
 set list
 set listchars=tab:>-,trail:-
-set expandtab
 set hlsearch
 set incsearch
 set autoindent
 set smartindent
 set hidden
 set linebreak
+set tabstop=4
+set softtabstop=4
+set smarttab
 
 set ignorecase
 set smartcase
@@ -199,9 +209,6 @@ noremap <C-Right> <C-W>l
 "自动格式化
 set formatoptions=tcrqn
 
-"在行和段开始处使用制表符
-set smarttab
-
 "在normal模式下使用系统剪贴板
 set clipboard+=unnamed
 
@@ -222,22 +229,16 @@ set autoread
 
 "打开目录时不显示隐藏目录和文件，以及.pyc文件。
 let g:netrw_hide= 1
-let g:netrw_list_hide= '(^\..*|.*\.pyc|.*\.class)'
+let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
 
 "AutoCommand
 "新建文件后，自动定位到文件末尾
 autocmd BufNewFile * normal G
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-"Python/java/ruby设置Tab宽度为4
-autocmd FileType python,java,ruby,go,robot setlocal tabstop=4 softtabstop=4 shiftwidth=4
-"javascript/stylus/jade/html/ejs/tpl设置Tab宽度为2
-autocmd FileType pug,jade,html,ejs,tpl,javascript,css,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>;
 imap <leader>; <C-X><C-O>
@@ -259,41 +260,9 @@ cmap <leader>+ <C-r>+
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
 
-""tag设置
-"autocmd FileType c,cpp,h,java,javascript,python,Makefile,Rakefile setlocal tags=.tags;
-"set autochdir
-
-""有代码更新的时候，自动更新tags
-"let g:rootmarkers = ['.git', '.svn']
-
-"function! GoToProjectRoot()
-    "for dirname in g:rootmarkers
-        "let dirpath = finddir(dirname, expand("%:p:h") . ';')
-        "if isdirectory(dirpath)
-            "let ProjectRoot = fnamemodify(dirpath, ':h')
-            "exe "cd " . ProjectRoot
-            "break
-        "endif
-    "endfor
-"endfunction
-
-"function! UpdateTags()
-    "call GoToProjectRoot()
-    "let currentDir = expand("%:p:h")
-    "if currentDir != $HOME
-        "let cmd = 'ctags -R --exclude=node_modules --fields=+l --exclude=.git -f .tags . &'
-        "" 如果创建tag的命令需要定制，可以采用下面的方式，以makefile的形式来创建tag
-        ""let cmd = 'make tags'
-        "let resp = system(cmd)
-        ""execute cmd
-    "endif
-"endfunction
-
-"autocmd BufWritePost *.go,*.py,*.js call UpdateTags()
-
 "for golang
 function! SetGoPath()
-    let srcDir = finddir('src', expand("%:p:h") . ';')
+    let srcDir = fnamemodify(finddir('src', expand("%:p:h") . ';'), ':p:h')
     if isdirectory(srcDir) && empty($GOPATH)
         let $GOPATH = fnamemodify(srcDir, ':h')
     endif

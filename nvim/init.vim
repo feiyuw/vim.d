@@ -11,9 +11,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'tomasr/molokai'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'nixprime/cpsm'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
@@ -45,7 +42,14 @@ Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'tpope/vim-sleuth'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
+"fzf
+nmap <C-p> :Files<CR>
+nmap <C-e> :Buffers<CR>
+nmap <C-g> :Rg<CR>
 
 "ncm2
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -86,9 +90,6 @@ endif
 " tmux
 let g:tmux_navigator_save_on_switch = 1
 
-" ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
 " jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
@@ -126,22 +127,7 @@ set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
 
-" ctrlp
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(exe|so|dll|pyc|class|gif|png|jpg|jpeg|jar|swp|swo)$',
-    \ }
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags,__pycache__,*.pyc,*.class
-
-" ctrlp funcky
-nnoremap <leader>f :CtrlPFunky<Cr>
-let g:ctrlp_funky_matchtype = 'path'
 
 " nerdtree
 let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
@@ -193,6 +179,8 @@ set smartindent
 set hidden
 set linebreak
 set tabstop=4
+set softtabstop=4
+set smarttab
 
 set ignorecase
 set smartcase
