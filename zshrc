@@ -113,5 +113,4 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --bind up:preview-up,down
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,pkg,node_modules,vendor,bin,build} -H --type f"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
-source ~/.oh-my-zsh/custom/fzf-git.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
