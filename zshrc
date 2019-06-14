@@ -49,7 +49,20 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras python node docker npm pip vi-mode tmux react-native golang)
+plugins=(
+  git
+  docker
+  history
+  mvn
+  node
+  npm
+  python
+  tmux
+  vi-mode
+  yarn
+  fzf
+  zsh-autosuggestions
+)
 
 # User configuration
 
@@ -96,6 +109,9 @@ function download-youtube() {
     done
 }
 
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --bind up:preview-up,down:preview-down --preview '(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,pkg,node_modules,vendor,bin,build} -H --type f"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+source ~/.oh-my-zsh/custom/fzf-git.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
