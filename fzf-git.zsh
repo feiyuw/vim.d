@@ -39,7 +39,7 @@ gg_() {
   fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
     --header 'Press CTRL-S to toggle sort' \
     --preview 'rg -o "\x1b\[m\x1b\[33m[a-f0-9]{7,}" <<< {} | xargs git show --color=always | head -'$LINES |
-  rg -o "[a-f0-9]{7,}"
+  rg -w -o "[a-f0-9]{7,}"
 }
 
 gr_() {
