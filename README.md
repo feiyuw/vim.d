@@ -1,18 +1,29 @@
-This repository contains three configuration files:
+This repository contains five configuration files:
 
 * vimrc
 * neovim
 * zshrc
 * tmux.conf
+* fzf-git.zsh
 
 ---
 
 ## VIM & Neovim
 
-1. It works fine on Mac OSX with VIM 8.0+ and Neovim 0.1.7.
+1. It works fine on Mac OSX with VIM 8.0+ and Neovim 0.3.7.
 1. It should be OK for Linux with same version.
 
 ### Install & Upgrade
+
+#### Pre-requirements
+
+```sh
+# fzf, bat, ripgrep, fd
+brew install fzf
+brew install bat
+brew install ripgrep
+brew install fd
+```
 
 #### Install
 
@@ -33,21 +44,6 @@ This repository contains three configuration files:
     git clone https://github.com/powerline/fonts.git ~/.fonts/powerline-fonts
     cd ~/.fonts/powerline-fonts
     ./install.sh
-    ```
-1. Install `cpsm`
-
-    ```sh
-    sudo apt install libboost-all-dev python-dev
-    cd ~/.config/nvim/plugged/cpsm
-    ./install.sh
-    ```
-1. Install `YouCompleteMe`
-
-    ```sh
-    cd ~/.config/nvim/plugged/YouCompleteMe
-    ./install.py --go-completer
-
-    pip install neovim # for neovim support
     ```
 1. Open `nvim` again, enjoy!
 
@@ -70,9 +66,6 @@ This repository contains three configuration files:
 The plugins I used are:
 
 * tomasr/molokai
-* nixprime/cpsm
-* ctrlpvim/ctrlp.vim
-* tacahiroy/ctrlp-funky
 * scrooloose/nerdtree
 * vim-scripts/NERD_tree-Project
 * scrooloose/nerdcommenter
@@ -81,21 +74,31 @@ The plugins I used are:
 * vim-airline/vim-airline
 * vim-airline/vim-airline-themes
 * tpope/vim-fugitive
-* Valloric/YouCompleteMe
 * w0rp/ale
-* mfukar/robotframework-vim
+* feiyuw/robotframework-vim
 * ntpeters/vim-better-whitespace
 * elzr/vim-json
 * pangloss/vim-javascript
 * mxw/vim-jsx
 * othree/html5.vim
 * airblade/vim-gitgutter
-* wavded/vim-stylus
-* moll/vim-node
 * jiangmiao/auto-pairs
 * ekalinin/Dockerfile.vim
 * fatih/vim-go
 * christoomey/vim-tmux-navigator
+* rust-lang/rust.vim
+* ncm2/ncm2
+* roxma/nvim-yarp
+* ncm2/ncm2-bufword
+* ncm2/ncm2-path
+* ncm2/ncm2-jedi
+* ncm2/ncm2-go
+* ncm2/ncm2-markdown-subscope
+* ncm2/ncm2-tern
+* davidhalter/jedi-vim
+* tpope/vim-sleuth
+* /usr/local/opt/fzf
+* junegunn/fzf.vim
 
 ### Shortcuts
 
@@ -123,10 +126,6 @@ The plugins I used are:
 
     open/close tag bar on the right panel
 
-1. `<F5>`
-
-    execute "make test" in project root
-
 1. `<F12>`
 
     open/close project browser on the left panel
@@ -137,12 +136,15 @@ The plugins I used are:
 
 1. `<Ctrl-p>`
 
-    in `insert` mode, used to open specified file quickly;
-    see detail in `ctrlp.vim` plugin
+    in `insert` mode, used to open specified file quickly
 
-1. `,;`
+1. `<Ctrl-g>`
 
-    auto complete
+    in `insert` mode, used to search content of current project
+
+1. `<Ctrl-e>`
+
+    in `insert` mode, used to search content of buffers
 
 1. `,c`
 
@@ -198,29 +200,43 @@ The plugins I used are:
 
 ### VIM on Terminal
 
-1. I use "gnome-terminal", suggest modify the color schema similar with vim.
-1. See http://stackoverflow.com/a/7734960/3659453
-
-## Screenshot
-
-![panel](/img/panel.png "VIM Panel")
-![usage](/img/usage.gif "VIM Usage")
-
-## Reference
-
-1. [VIM Tips](http://www.rayninfo.co.uk/vimtips.html)
-1. [VIM scripts](http://vim-scripts.org)
-1. [ctrlp.vim introduction](http://zuyunfei.com/2013/08/26/vim-plugin-ctrlp/)
-1. [Practical VIM](http://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980/ref=sr_1_1?ie=UTF8&qid=1407823913&sr=8-1&keywords=practical+vim)
+1. Try tmux and zsh on iTerm2
 
 ## Tmux
 
 ```
 ln -s ~/workspace/vim.d/tmux.conf ~/.tmux.conf
+# clone tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# open tmux
+tmux
+# Execute <C-b>I
+# wait until all plugins installed
 # enjoy
 ```
 
+## zsh
+
+```sh
+# install zsh
+brew install zsh
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ln -s ~/workspace/vim.d/zshrc ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+ln -s ~/workspace/vim.d/fzf-git.zsh ~/.oh-my-zsh/custom/fzf-git.zsh
+```
+
+Reopen terminal, and enjoy!
+
+## Screenshot
+
+<script id="asciicast-Chzur3Ancy1ek5RimXuhS3GDK" src="https://asciinema.org/a/Chzur3Ancy1ek5RimXuhS3GDK.js" async></script>
+
 ## Reference
 
-1. [upgrade tmux from 1.8 to 2.0 on ubuntu 14.04](http://stackoverflow.com/questions/25940944/ugrade-tmux-from-1-8-to-1-9-on-ubuntu-14-04)
-1. [dayid's tmux & screen cheat-sheet](http://www.dayid.org/comp/tm.html)
+1. [Vim Awesome](https://vimawesome.com/)
+1. [Vim Tips](http://www.rayninfo.co.uk/vimtips.html)
+1. [Vim scripts](http://vim-scripts.org)
+1. [Practical Vim](http://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980/ref=sr_1_1?ie=UTF8&qid=1407823913&sr=8-1&keywords=practical+vim)
