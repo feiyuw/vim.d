@@ -47,7 +47,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "fzf
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4.. --preview-window=hidden'}, <bang>0)
 nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
 nmap <C-g> :Rg<CR>
