@@ -201,11 +201,6 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 inoremap <c-h> <left>
-" 在窗口间移动
-noremap <C-Down> <C-W>j
-noremap <C-Up> <C-W>k
-noremap <C-Left> <C-W>h
-noremap <C-Right> <C-W>l
 
 "自动格式化
 set formatoptions=tcrqn
@@ -228,21 +223,14 @@ set mouse=a
 "Set to auto read when a file is changed from the outside
 set autoread
 
-"打开目录时不显示隐藏目录和文件，以及.pyc文件。
+"打开目录时不显示隐藏目录和文件
 let g:netrw_hide= 1
 let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
-
-"AutoCommand
-"新建文件后，自动定位到文件末尾
-autocmd BufNewFile * normal G
 
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
 let g:python3_host_prog = '/usr/local/bin/python3'
-
-"绑定自动补全的快捷键<C-X><C-O>到<leader>;
-imap <leader>; <C-X><C-O>
 
 "绑定复制到系统剪贴板快捷键
 vmap <leader>c "+y

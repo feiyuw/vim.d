@@ -38,7 +38,7 @@ gg_() {
   git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
   fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
     --header 'Press CTRL-S to toggle sort' \
-    --preview 'rg -o "\x1b\[m\x1b\[33m[a-f0-9]{7,}" <<< {} | xargs git show --color=always | head -'$LINES |
+    --preview 'rg "\x1b\[m\x1b\[33m[a-f0-9]{7,}" | rg -o "[a-f0-9]{7,}" <<< {} | xargs git show --color=always | head -'$LINES |
   rg -w -o "[a-f0-9]{7,}"
 }
 
