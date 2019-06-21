@@ -232,7 +232,7 @@ Reopen terminal, and enjoy!
 
 ## Screenshot
 
-<script id="asciicast-Chzur3Ancy1ek5RimXuhS3GDK" src="https://asciinema.org/a/Chzur3Ancy1ek5RimXuhS3GDK.js" async></script>
+[![asciicast](https://asciinema.org/a/Chzur3Ancy1ek5RimXuhS3GDK.svg)](https://asciinema.org/a/Chzur3Ancy1ek5RimXuhS3GDK)
 
 ## Reference
 
