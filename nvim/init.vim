@@ -48,6 +48,8 @@ call plug#end()
 
 "fzf
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4.. --preview-window=hidden'}, <bang>0)
+let g:fzf_files_options =
+\ '--bind up:preview-up,down:preview-down --preview "(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500"'
 nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
 nmap <C-g> :Rg<CR>
