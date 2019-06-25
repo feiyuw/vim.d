@@ -82,6 +82,9 @@ let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 "vim-go
 let g:go_version_warning = 1
+let g:go_highlight_structs = 0
+let g:go_highlight_interfaces = 0
+let g:go_highlight_operators = 0
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
