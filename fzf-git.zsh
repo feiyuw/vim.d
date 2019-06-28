@@ -38,11 +38,11 @@ gt_() {
 
 gg_() {
   is_in_git_repo || return
-  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
+  git log --date=short --format="%C(green)%C(bold)%cd%C(reset) %h%d %s (%an)" --graph --color=always |
   fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
     --header 'Press CTRL-S to toggle sort' \
     --bind up:preview-up,down:preview-down \
-    --preview 'rg "\x1b\[m\x1b\[33m[a-f0-9]{7,}" | rg -o "[a-f0-9]{7,}" <<< {} | xargs git show --color=always | head -'$LINES |
+    --preview 'rg -w -o "[a-f0-9]{7,}" <<< {} | xargs git show --color=always | head -'$LINES |
   rg -w -o "[a-f0-9]{7,}"
 }
 
