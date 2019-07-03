@@ -113,7 +113,7 @@ let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['gometalinter']}
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['golangci-lint']}
 let g:ale_maximum_file_size = 524288  " 512KB
 let g:ale_completion_enabled = 0
 let g:ale_lint_delay = 250
@@ -126,9 +126,6 @@ let g:ale_pattern_options = {
 
 " molokai
 set background=dark
-set guioptions=i
-set guifont=Source\ Code\ Pro\ for\ Powerline\ Book\ 12
-set guifontwide=Source\ Code\ Pro\ for\ Powerline\ Book\ 12
 set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai

@@ -34,7 +34,7 @@ brew install fd
 1. Create `~/.vimrc`
 
         ln -s ~/workspace/vim.d/vimrc ~/.vimrc  # vim
-        ln -s ~/workspace/vim.d/nvim ~/.config  # neovim
+        mkdir -p ~/.conf/nvim; ln -s ~/workspace/vim.d/nvim/init.vim ~/.config/nvim/init.vim  # neovim
 
 1. Open `nvim`, execute `:PlugInstall`
 1. Patch `powerline` font
