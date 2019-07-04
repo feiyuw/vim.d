@@ -121,7 +121,7 @@ alias to-hz-245='ssh root@10.0.2.245'
 export PATH=$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
 
 # golang
-export GO111MODULE=on
+#export GO111MODULE=on  # don't open it if you need vim ale to do lint
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
