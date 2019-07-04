@@ -1,0 +1,15 @@
+linters:
+  enable-all: true
+  disable:
+    - depguard
+    - dupl
+    - gochecknoglobals
+    - gochecknoinits
+    - goconst
+    - gocyclo
+    - gosec
+    - nakedret
+    - prealloc
+    - scopelint
+    - lll
+  fast: true
