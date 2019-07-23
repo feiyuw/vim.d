@@ -19,7 +19,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'feiyuw/robotframework-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -32,14 +32,8 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
-Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
-Plug 'ncm2/ncm2-go', { 'for': 'go' }
-Plug 'ncm2/ncm2-markdown-subscope'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'tpope/vim-sleuth'
 Plug '/usr/local/opt/fzf'
@@ -54,9 +48,8 @@ nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
 nmap <C-g> :Rg<CR>
 
-"ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-" IMPORTANT: :help Ncm2PopupOpen for more information
+"coc
+autocmd FileType json syntax match Comment +\/\/.\+$+
 set completeopt=noinsert,menuone,noselect
 set shortmess+=c
 " When the <Enter> key is pressed while the popup menu is visible, it only
@@ -77,7 +70,7 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#completions_enabled = 0
 
 "rust.vim
-let g:ale_rust_rustc_options = ''
+"let g:ale_rust_rustc_options = ''
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 "vim-go
@@ -113,17 +106,17 @@ let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['golangci-lint']}
-let g:ale_go_golangci_lint_options = '--enable-all --fast'
-let g:ale_maximum_file_size = 524288  " 512KB
-let g:ale_completion_enabled = 0
-let g:ale_lint_delay = 250
-"let g:ale_lint_on_text_changed = "normal"
-let b:ale_warn_about_trailing_whitespace = 0
-let g:ale_pattern_options = {
-\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-\}
+"let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['golangci-lint']}
+"let g:ale_go_golangci_lint_options = '--enable-all --fast'
+"let g:ale_maximum_file_size = 524288  " 512KB
+"let g:ale_completion_enabled = 0
+"let g:ale_lint_delay = 250
+""let g:ale_lint_on_text_changed = "normal"
+"let b:ale_warn_about_trailing_whitespace = 0
+"let g:ale_pattern_options = {
+"\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+"\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+"\}
 
 " molokai
 set background=dark
