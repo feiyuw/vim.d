@@ -19,7 +19,6 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-"Plug 'w0rp/ale'
 Plug 'feiyuw/robotframework-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -70,7 +69,6 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#completions_enabled = 0
 
 "rust.vim
-"let g:ale_rust_rustc_options = ''
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 "vim-go
@@ -105,19 +103,6 @@ let g:javascript_conceal_static     = "•"
 let g:javascript_conceal_super      = "Ω"
 let g:javascript_plugin_flow = 1
 
-" ale
-"let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8'], 'rust': ['cargo'], 'go': ['golangci-lint']}
-"let g:ale_go_golangci_lint_options = '--enable-all --fast'
-"let g:ale_maximum_file_size = 524288  " 512KB
-"let g:ale_completion_enabled = 0
-"let g:ale_lint_delay = 250
-""let g:ale_lint_on_text_changed = "normal"
-"let b:ale_warn_about_trailing_whitespace = 0
-"let g:ale_pattern_options = {
-"\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
-"\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-"\}
-
 " molokai
 set background=dark
 set t_Co=256
@@ -149,6 +134,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#coc#enabled = 1
 nmap <TAB> :bnext<CR>
 nmap <S-TAB> :bprevious<CR>
 set noshowmode
