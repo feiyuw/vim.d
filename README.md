@@ -45,6 +45,13 @@ brew install fd
     cd ~/.fonts/powerline-fonts
     ./install.sh
     ```
+1. Install coc extensions like:
+
+    ```sh
+    :CocInstall coc-python 
+    :CocInstall coc-tsserver 
+    :CocInstall coc-json 
+    ```
 1. Open `nvim` again, enjoy!
 
 
@@ -85,16 +92,10 @@ The plugins I used are:
 * jiangmiao/auto-pairs
 * ekalinin/Dockerfile.vim
 * fatih/vim-go
+* neoclide/coc.nvim
 * christoomey/vim-tmux-navigator
 * rust-lang/rust.vim
-* ncm2/ncm2
 * roxma/nvim-yarp
-* ncm2/ncm2-bufword
-* ncm2/ncm2-path
-* ncm2/ncm2-jedi
-* ncm2/ncm2-go
-* ncm2/ncm2-markdown-subscope
-* ncm2/ncm2-tern
 * davidhalter/jedi-vim
 * tpope/vim-sleuth
 * /usr/local/opt/fzf
@@ -154,7 +155,6 @@ The plugins I used are:
 
     paste from system clipboard
 
-
 ## Some Tips
 
 ### Edit file in column
@@ -204,7 +204,7 @@ The plugins I used are:
 
 ## Tmux
 
-```
+```sh
 ln -s ~/workspace/vim.d/tmux.conf ~/.tmux.conf
 # clone tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
