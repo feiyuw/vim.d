@@ -14,7 +14,6 @@ Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -22,8 +21,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'feiyuw/robotframework-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
@@ -33,7 +30,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'tpope/vim-sleuth'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
