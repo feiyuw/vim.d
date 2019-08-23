@@ -29,7 +29,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
 Plug 'roxma/nvim-yarp'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sleuth'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -68,6 +68,8 @@ let g:go_version_warning = 1
 let g:go_highlight_structs = 0
 let g:go_highlight_interfaces = 0
 let g:go_highlight_operators = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
