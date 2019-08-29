@@ -47,10 +47,8 @@ nmap <C-g> :Rg<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " if hidden is not set, TextEdit might fail.
 set hidden
-" Better display for messages
-set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+set updatetime=500
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 " always show signcolumns
@@ -72,9 +70,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
 
 "rust.vim
 let g:rustfmt_autosave = 1
@@ -87,13 +82,13 @@ let g:go_highlight_interfaces = 0
 let g:go_highlight_operators = 0
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+" disable vim-go :GoDef short cut (gd)
+" this is handled by LanguageClient [LC]
+let g:go_def_mapping_enabled = 0
+let g:go_code_completion_enabled = 0
 
 " gitgutter
-if exists('&signcolumn')  " Vim 7.4.2201
-  set signcolumn=yes
-else
-  let g:gitgutter_sign_column_always = 1
-endif
+let g:gitgutter_sign_column_always = 1
 
 " tmux
 let g:tmux_navigator_save_on_switch = 1
@@ -101,29 +96,16 @@ let g:tmux_navigator_save_on_switch = 1
 " jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" javascript
-let g:javascript_ignore_javaScriptdoc = 1
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-let g:javascript_conceal_static     = "•"
-let g:javascript_conceal_super      = "Ω"
-let g:javascript_plugin_flow = 1
-
 " molokai
 set background=dark
 set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags,__pycache__,*.pyc,*.class
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags,*/__pycache__/*,*.pyc,*.class
 
 " nerdtree
-let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$']
+let NERDTreeIgnore=['\.$', '\~$', '\.pyc$', '\.class$', '__pycache__']
 map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
