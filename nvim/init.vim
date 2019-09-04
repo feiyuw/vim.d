@@ -42,6 +42,7 @@ let g:fzf_files_options =
 nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
 nmap <C-g> :Rg<CR>
+nmap <leader>f :BTags<CR>
 
 "coc.nvim
 autocmd FileType json syntax match Comment +\/\/.\+$+
