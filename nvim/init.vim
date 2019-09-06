@@ -206,6 +206,7 @@ let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
+let g:python_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 "绑定复制到系统剪贴板快捷键
