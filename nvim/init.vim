@@ -26,7 +26,6 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -75,18 +74,6 @@ endfunction
 "rust.vim
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
-
-"vim-go
-let g:go_version_warning = 1
-let g:go_highlight_structs = 0
-let g:go_highlight_interfaces = 0
-let g:go_highlight_operators = 0
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
-let g:go_code_completion_enabled = 0
 
 " gitgutter
 let g:gitgutter_sign_column_always = 1
@@ -206,7 +193,6 @@ let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
 "python，设置缩进格式
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,expect,finally,def,class,with
 
-let g:python_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 "绑定复制到系统剪贴板快捷键

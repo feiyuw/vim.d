@@ -48,6 +48,7 @@ brew install fd
 1. Install coc extensions like:
 
     ```sh
+    :CocInstall coc-go 
     :CocInstall coc-python 
     :CocInstall coc-tsserver 
     :CocInstall coc-json 
@@ -81,17 +82,14 @@ The plugins I used are:
 * vim-airline/vim-airline
 * vim-airline/vim-airline-themes
 * tpope/vim-fugitive
-* w0rp/ale
 * feiyuw/robotframework-vim
 * ntpeters/vim-better-whitespace
 * elzr/vim-json
 * pangloss/vim-javascript
-* mxw/vim-jsx
 * othree/html5.vim
 * airblade/vim-gitgutter
 * jiangmiao/auto-pairs
 * ekalinin/Dockerfile.vim
-* fatih/vim-go
 * neoclide/coc.nvim
 * christoomey/vim-tmux-navigator
 * rust-lang/rust.vim

@@ -2,12 +2,6 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [],
   "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "args": [],
-      "rootPatterns": ["go.mod", ".git"],
-      "filetypes": ["go"]
-    },
     "efm": {
       "command": "efm-langserver",
       "args": [],
