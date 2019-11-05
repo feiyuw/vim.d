@@ -4,6 +4,8 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
+      "args": [],
+      "rootPatterns": ["go.mod", ".git"],
       "filetypes": ["go"]
     },
     "efm": {

@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/zhangyu/.oh-my-zsh"
+export ZSH="/Users/zhang/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -111,17 +111,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='nvim'
-for n ({006..018})
-do
-  alias to-hz-a$n="ssh root@10.1.2.$n"
-done
-alias to-hz-138='ssh root@10.1.2.138'
-alias to-hz-245='ssh root@10.0.2.245'
 
 export PATH=$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
-
-# golang
-#export GO111MODULE=on  # don't open it if you need vim ale to do lint
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -141,3 +132,10 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse"
 export FZF_CTRL_T_OPTS="--height 40% --layout=reverse --bind up:preview-up,down:preview-down --preview '(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# golang
+#export GO111MODULE=on  # don't open it if you need vim ale to do lint
+export GOPATH=$HOME/go
+
+# rust
+source $HOME/.cargo/env
