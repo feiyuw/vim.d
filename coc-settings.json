@@ -1,6 +1,6 @@
 {
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": ["go", "python"],
+  "coc.preferences.formatOnSaveFiletypes": [],
   "languageserver": {
     "efm": {
       "command": "efm-langserver",
