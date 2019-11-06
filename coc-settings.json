@@ -1,6 +1,6 @@
 {
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": [],
+  "coc.preferences.formatOnSaveFiletypes": ["go", "python"],
   "languageserver": {
     "efm": {
       "command": "efm-langserver",
@@ -8,11 +8,6 @@
       // custom config path
       // "args": ["-c", "/path/to/your/config.yaml"],
       "filetypes": ["vim", "eruby", "markdown", "yaml"]
-    },
-    "rust": {
-      "command": "ra_lsp_server",
-      "filetypes": ["rust"],
-      "rootPatterns": ["Cargo.toml"]
     }
   },
   "python.linting.pylintEnabled": false,

@@ -49,9 +49,15 @@ brew install fd
 
     ```sh
     :CocInstall coc-go 
+    :CocInstall coc-rls 
     :CocInstall coc-python 
     :CocInstall coc-tsserver 
     :CocInstall coc-json 
+    ```
+1. Create `~/.config/nvim/coc-settings.json`
+
+    ```sh
+    ln -s ~/workspace/vim.d/coc-settings.json ~/.config/nvim/coc-settings.json
     ```
 1. Open `nvim` again, enjoy!
 
