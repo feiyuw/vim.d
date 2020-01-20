@@ -135,7 +135,8 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 
 # golang
 #export GO111MODULE=on  # don't open it if you need vim ale to do lint
-export GOPATH=$HOME/go
+#export GOPATH=$HOME/go
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
 
 # rust
 source $HOME/.cargo/env

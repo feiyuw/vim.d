@@ -21,7 +21,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'feiyuw/robotframework-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
