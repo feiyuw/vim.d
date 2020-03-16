@@ -38,7 +38,11 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'mhinz/vim-startify'
 call plug#end()
+
+"startify
+let g:startify_change_to_vcs_root = 1
 
 "fzf
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4.. --preview-window=hidden'}, <bang>0)
