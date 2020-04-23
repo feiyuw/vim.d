@@ -39,6 +39,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mhinz/vim-startify'
+Plug 'jjo/vim-cue'
 call plug#end()
 
 "startify
@@ -233,12 +234,3 @@ cmap <leader>+ <C-r>+
 "Ctrl+S
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
-
-"for golang
-function! SetGoPath()
-    let srcDir = fnamemodify(finddir('src', expand("%:p:h") . ';'), ':p:h')
-    if isdirectory(srcDir) && empty($GOPATH)
-        let $GOPATH = fnamemodify(srcDir, ':h')
-    endif
-endfunction
-autocmd FileType go call SetGoPath()
