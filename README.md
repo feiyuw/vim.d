@@ -83,7 +83,6 @@ The plugins I used are:
 * scrooloose/nerdtree
 * vim-scripts/NERD_tree-Project
 * scrooloose/nerdcommenter
-* plasticboy/vim-markdown
 * majutsushi/tagbar
 * vim-airline/vim-airline
 * vim-airline/vim-airline-themes
@@ -92,18 +91,23 @@ The plugins I used are:
 * ntpeters/vim-better-whitespace
 * elzr/vim-json
 * pangloss/vim-javascript
+* mxw/vim-jsx
+* leafgarland/typescript-vim
+* peitalin/vim-jsx-typescript
 * othree/html5.vim
 * airblade/vim-gitgutter
 * jiangmiao/auto-pairs
 * ekalinin/Dockerfile.vim
-* neoclide/coc.nvim
 * christoomey/vim-tmux-navigator
 * rust-lang/rust.vim
-* roxma/nvim-yarp
-* davidhalter/jedi-vim
+* neoclide/coc.nvim
 * tpope/vim-sleuth
 * /usr/local/opt/fzf
 * junegunn/fzf.vim
+* godlygeek/tabular
+* plasticboy/vim-markdown
+* mhinz/vim-startify
+* jjo/vim-cue
 
 ### Shortcuts
 

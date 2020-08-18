@@ -111,8 +111,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='nvim'
+alias kubectl='/usr/local/Cellar/kubernetes-cli/1.18.8/bin/kubectl'
+alias tominikube='eval $(minikube docker-env)'
 
-export PATH=$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
+export PATH=/usr/local/apache-ant-1.10.8/bin:/usr/local/istio-1.5.1/bin:/usr/local/kubebuilder/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
+export JAVA_HOME=`/usr/libexec/java_home`
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -134,8 +137,6 @@ export FZF_CTRL_T_OPTS="--height 40% --layout=reverse --bind up:preview-up,down:
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # golang
-#export GO111MODULE=on  # don't open it if you need vim ale to do lint
-#export GOPATH=$HOME/go
 export GOPROXY=https://mirrors.aliyun.com/goproxy/
 
 # rust
