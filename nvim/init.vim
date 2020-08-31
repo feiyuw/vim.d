@@ -55,6 +55,7 @@ nmap <leader>f :BTags<CR>
 
 "coc.nvim
 autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Smaller updatetime for CursorHold & CursorHoldI
