@@ -39,6 +39,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mhinz/vim-startify'
 Plug 'jjo/vim-cue'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
 
 "startify
@@ -55,7 +56,6 @@ nmap <leader>f :BTags<CR>
 
 "coc.nvim
 autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Smaller updatetime for CursorHold & CursorHoldI
@@ -171,7 +171,7 @@ set smartindent
 set hidden
 set linebreak
 set tabstop=4
-set softtabstop=4
+"set softtabstop=4
 set smarttab
 
 set ignorecase
@@ -239,3 +239,6 @@ cmap <leader>+ <C-r>+
 "Ctrl+S
 imap <C-s> <ESC>:w<CR>i
 nmap <C-s> :w<CR>
+
+"golang
+autocmd FileType go autocmd BufWritePre <buffer> call CocAction('format')
