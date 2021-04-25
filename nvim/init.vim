@@ -187,6 +187,12 @@ else
     map <leader>s :split <C-R>=expand("%:p:h") . "\\" <CR>
 endif
 
+" switch window
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
 " 插入模式下移动
 inoremap <c-j> <down>
 inoremap <c-k> <up>
