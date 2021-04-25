@@ -49,9 +49,9 @@ let g:startify_change_to_vcs_root = 1
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4.. --preview-window=hidden'}, <bang>0)
 let g:fzf_files_options =
 \ '--bind up:preview-up,down:preview-down --preview "(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500"'
-nmap <C-p> :Files<CR>
-nmap <C-e> :Buffers<CR>
-nmap <C-g> :Rg<CR>
+nmap <c-p> :Files<CR>
+nmap <c-e> :Buffers<CR>
+nmap <c-g> :Rg<CR>
 nmap <leader>f :BTags<CR>
 
 "coc.nvim
@@ -64,7 +64,7 @@ set updatetime=500
 set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
-nmap <C-]> <Plug>(coc-definition)
+nmap <c-]> <Plug>(coc-definition)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -72,10 +72,10 @@ nmap <silent> gr <Plug>(coc-references)
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? "\<c-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> pumvisible() ? "\<c-p>" : "\<c-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -178,20 +178,20 @@ set ignorecase
 set smartcase
 
 if has("unix")
-map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-    map <leader>vs :vsplit <C-R>=expand("%:p:h") . "/" <CR>
-    map <leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>e :e <c-R>=expand("%:p:h") . "/" <CR>
+    map <leader>vs :vsplit <c-R>=expand("%:p:h") . "/" <CR>
+    map <leader>s :split <c-R>=expand("%:p:h") . "/" <CR>
 else
-    map <leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
-    map <leader>vs :vsplit <C-R>=expand("%:p:h") . "\\" <CR>
-    map <leader>s :split <C-R>=expand("%:p:h") . "\\" <CR>
+    map <leader>e :e <c-R>=expand("%:p:h") . "\\" <CR>
+    map <leader>vs :vsplit <c-R>=expand("%:p:h") . "\\" <CR>
+    map <leader>s :split <c-R>=expand("%:p:h") . "\\" <CR>
 endif
 
 " switch window
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
 
 " 插入模式下移动
 inoremap <c-j> <down>
@@ -239,12 +239,12 @@ vmap <leader>v <ESC>"+p
 nmap <leader>v "+p
 
 "复制粘贴
-cmap <leader>" <C-r>"
-cmap <leader>+ <C-r>+
+cmap <leader>" <c-r>"
+cmap <leader>+ <c-r>+
 
 "Ctrl+S
-imap <C-s> <ESC>:w<CR>i
-nmap <C-s> :w<CR>
+imap <c-s> <ESC>:w<CR>i
+nmap <c-s> :w<CR>
 
 "golang
 autocmd FileType go autocmd BufWritePre <buffer> call CocAction('format')
