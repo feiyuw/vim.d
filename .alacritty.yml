@@ -15,6 +15,7 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 window:
+  decorations: buttonless
   dimensions:
     columns: 160
     lines: 40
@@ -45,6 +46,7 @@ selection:
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
+#window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
