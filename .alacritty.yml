@@ -36,7 +36,7 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - { key: Return,         mods: Command,                    action: ToggleSimpleFullscreen }
+  - { key: Return,         mods: Command,                    action: ToggleFullscreen }
 
 selection:
   save_to_clipboard: true
