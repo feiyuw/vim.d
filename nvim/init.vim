@@ -56,6 +56,8 @@ nmap <leader>f :BTags<CR>
 
 "coc.nvim
 autocmd FileType json syntax match Comment +\/\/.\+$+
+"for javascript
+autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Smaller updatetime for CursorHold & CursorHoldI
