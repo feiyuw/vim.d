@@ -10,7 +10,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tomasr/molokai'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/NERD_tree-Project'
 Plug 'scrooloose/nerdcommenter'
@@ -97,11 +97,16 @@ let g:tmux_navigator_save_on_switch = 1
 " jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" molokai
+" onehalf
 set background=dark
 set t_Co=256
 let g:rehash256 = 1
-colorscheme molokai
+colorscheme onehalfdark
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/proto/*,*/dist/*,*/.cache/*,*/bower_components/*.tags,*/__pycache__/*,*.pyc,*.class
 
