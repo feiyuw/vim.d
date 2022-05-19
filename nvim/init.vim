@@ -1,4 +1,5 @@
 let g:mapleader=","
+let uname = substitute(system('uname'), '\n', '', '')
 
 syntax on
 
@@ -33,7 +34,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sleuth'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -86,7 +87,11 @@ endfunction
 
 "rust.vim
 let g:rustfmt_autosave = 1
-let g:rust_clip_command = 'pbcopy'
+if uname == 'Darwin'
+  let g:rust_clip_command = 'pbcopy'
+elseif uname == 'Linux'
+  let g:rust_clip_command = 'xclip -selection clipboard'
+endif
 
 " gitgutter
 let g:gitgutter_sign_column_always = 1
